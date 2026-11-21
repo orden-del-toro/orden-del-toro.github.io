@@ -347,7 +347,10 @@ footer { background: rgba(7, 7, 7, .93); border-top: 1px solid rgba(201, 162, 79
   header .nav-toggle { display: grid; place-items: center; width: 44px; height: 44px; flex: 0 0 44px; padding: 0; }
   header .odt-discord-link { width: 44px; height: 44px; flex-basis: 44px; }
   .odt-home-shell { width: min(100% - 30px, 560px); }
-  .odt-hero { background-position: 59% center; }
+  .odt-hero { min-height: var(--odt-hero-height); padding: 28px 0 78px; background-position: 59% center; }
+  /* La capa decorativa no debe crear una fila vacía sobre el emblema. */
+  .odt-hero-shade { position: absolute; inset: 0; pointer-events: none; }
+  .odt-hero-content { margin: 0 auto; }
   .odt-hero-emblem { width: 200px; margin-bottom: 14px; }
   .odt-hero-kicker { font-size: 9px; letter-spacing: .22em; }
   .odt-hero h1 { margin-top: 12px; font-size: clamp(35px, 10vw, 55px); line-height: 1.12; }
