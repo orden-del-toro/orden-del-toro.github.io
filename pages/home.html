@@ -1,0 +1,77 @@
+<div class="page" id="page-inicio">
+  <section class="odt-hero" aria-labelledby="homeGuildTitle">
+    <div class="odt-hero-shade"></div>
+    <div class="odt-hero-content">
+      <img class="odt-hero-emblem" src="logo-toro.png?v=20261023-logo" alt="Emblema de Orden del Toro">
+      <h1 id="homeGuildTitle">ORDEN DEL TORO</h1>
+      <div class="odt-hero-kicker">HERMANDAD · PROGRESO</div>
+      <div class="odt-hero-ornament" aria-hidden="true"><span></span><b>◆</b><span></span></div>
+    </div>
+    <a class="odt-hero-scroll" href="#resumen-portada" aria-label="Ver resumen"><span></span></a>
+  </section>
+
+  <div class="odt-home-shell" id="resumen-portada">
+    <section class="odt-stat-grid" aria-label="Resumen de la hermandad">
+      <article class="odt-stat-card odt-stat-raid">
+        <div class="odt-stat-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><path d="M11 8l25 25M8 11l25 25M33 8l-7 7m11 11-7 7M8 33l7-7m11 11 7-7M8 40l12-12M28 20 40 8"/><path d="m8 8 5 1 1 5m26 26-5-1-1-5"/></svg>
+        </div>
+        <div class="odt-stat-copy">
+          <div class="odt-stat-label">PRÓXIMO RAID</div>
+          <div id="homeNextRaidDay" class="odt-stat-primary">—</div>
+          <div id="homeNextRaidTime" class="odt-stat-secondary">Horario por confirmar</div>
+          <div id="homeNextRaidNote" class="odt-stat-note"></div>
+        </div>
+        <span class="odt-stat-index">01</span>
+      </article>
+
+      <article class="odt-stat-card odt-stat-progress">
+        <div class="odt-stat-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><path d="M8 39h32M12 35V25h6v10m6 0V17h6v18m6 0V9h6v26"/></svg>
+        </div>
+        <div class="odt-stat-copy">
+          <div class="odt-stat-label">PROGRESO ACTUAL</div>
+          <div class="odt-progress-reading"><strong id="homeRaidProgressValue">—</strong><span id="homeRaidProgressDifficulty">SIN DATOS</span></div>
+          <div class="odt-progress-track" role="progressbar" aria-label="Progreso del encuentro actual" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="homeRaidProgressBar"></span></div>
+          <div id="homeRaidProgressName" class="odt-stat-secondary">Progreso de la hermandad</div>
+        </div>
+        <span class="odt-stat-index">02</span>
+      </article>
+
+      <article class="odt-stat-card odt-stat-members">
+        <div class="odt-stat-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><circle cx="24" cy="15" r="7"/><path d="M10 39v-4a14 14 0 0 1 28 0v4zM9 17a5 5 0 0 0 0 10m30-10a5 5 0 0 1 0 10M4 38v-3a8 8 0 0 1 5-7m35 10v-3a8 8 0 0 0-5-7"/></svg>
+        </div>
+        <div class="odt-stat-copy">
+          <div class="odt-stat-label">MIEMBROS</div>
+          <div id="homeRosterCount" class="odt-stat-primary">—</div>
+          <div class="odt-stat-secondary">EN EL ROSTER</div>
+          <a class="odt-stat-action" href="#roster" onclick="navigate('roster'); return false;">VER MIEMBROS <span aria-hidden="true">›</span></a>
+        </div>
+        <span class="odt-stat-index">03</span>
+      </article>
+    </section>
+
+    <section class="odt-news-section" aria-labelledby="homeNewsTitle">
+      <div class="odt-section-heading">
+        <div>
+          <div class="odt-section-kicker">CRÓNICA DE LA HERMANDAD</div>
+          <h2 id="homeNewsTitle">ACTIVIDAD RECIENTE</h2>
+        </div>
+        <a class="odt-view-all" href="#media" onclick="navigate('media'); return false;">VER GALERÍA <span aria-hidden="true">›</span></a>
+      </div>
+      <div id="galleryContainer" class="odt-news-grid"></div>
+    </section>
+
+    <section class="odt-home-join" aria-label="Reclutamiento">
+      <span>EL SIGUIENTE PASO SE DA EN EQUIPO</span>
+      <a href="#reclutamiento" onclick="navigate('reclutamiento'); return false;">UNIRSE A LA HERMANDAD <b aria-hidden="true">›</b></a>
+    </section>
+
+    <div class="odt-legacy-render-targets" aria-hidden="true">
+      <div id="rosterContainer"></div><div id="rosterPager"></div>
+      <div id="progressContainer"></div><div id="raidStatusContainer"></div>
+      <div id="scheduleContainer"></div>
+    </div>
+  </div>
+</div>

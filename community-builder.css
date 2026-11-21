@@ -1,0 +1,423 @@
+/* ===== CONSTRUCTOR DE GUÍAS · EXTENSIÓN NUEVA ===== */
+.gear-builder-list{display:flex;flex-direction:column;gap:8px}.builder-gear-row{display:grid;grid-template-columns:92px 58px minmax(0,1fr) 28px;align-items:center;gap:12px;padding:10px 12px;border:1px solid var(--border);border-radius:6px;background:linear-gradient(180deg,rgba(255,255,255,.018),rgba(0,0,0,.08));}.builder-slot-name{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:.09em;color:var(--text-muted);text-transform:uppercase}.gear-icon-btn{width:52px;height:52px;border:1px solid var(--border-soft);border-radius:5px;background:#0e0d0b;color:var(--gold);font-family:'Oswald',sans-serif;font-size:22px;display:flex;align-items:center;justify-content:center;overflow:hidden}.gear-icon-btn:hover{border-color:var(--gold);background:rgba(201,162,79,.06)}.gear-icon-btn .wh-builder-link{display:block;width:46px;height:46px}.gear-icon-btn .wh-builder-link img,.gear-icon-btn img{width:46px;height:46px;object-fit:cover;border-radius:4px}.gear-row-main{min-width:0}.gear-url-line{display:flex;gap:8px}.gear-url-line input{flex:1;min-width:0}.tiny-btn,.mini-socket{border:1px solid var(--border);background:transparent;color:var(--gold-light);border-radius:4px;font-family:'Oswald',sans-serif;cursor:pointer}.tiny-btn{padding:8px 10px;font-size:10px}.tiny-btn:hover,.mini-socket:hover{border-color:var(--gold);background:rgba(201,162,79,.07)}.gear-mods{display:flex;gap:6px;margin-top:7px}.mini-socket{width:24px;height:24px;padding:0;font-size:13px;color:var(--text-dim)}.mini-socket.filled{color:var(--gold-light);border-color:var(--gold-dim);background:rgba(201,162,79,.08)}.mini-socket.enchant{margin-left:6px}.inline-inputs{display:none;padding-top:7px}.inline-inputs.open{display:block}.inline-input-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}.inline-input-row input{min-width:0;padding:7px 9px;background:#090908;border:1px solid rgba(255,255,255,.08);border-radius:4px;color:var(--text);font-size:11px}.remove-btn{width:26px;height:26px;border:1px solid var(--border);background:transparent;color:var(--text-dim);border-radius:4px}.remove-btn:hover{border-color:var(--red);color:#e08c80}.talent-builder{display:grid;gap:14px}.upload-drop{min-height:150px;border:1px dashed var(--gold-dim);border-radius:6px;background:rgba(201,162,79,.025);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--gold-light);font-family:'Oswald',sans-serif;letter-spacing:.08em;font-size:11px;cursor:pointer}.upload-drop input{display:none}.upload-drop small{font-family:'Inter',sans-serif;color:var(--text-dim);letter-spacing:0;font-size:10px}.upload-plus{width:42px;height:42px;border:1px solid var(--gold-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--gold)}.talent-image-preview{border-radius:6px;overflow:hidden;border:1px solid var(--border);background:#090908}.talent-image-preview img{display:block;width:100%;max-height:500px;object-fit:contain}.preview-item-top{min-height:24px}.preview-item-mods{display:flex;gap:4px;align-items:center;margin:4px 0}.preview-item-mods a{display:inline-flex!important;width:22px;height:22px;align-items:center;justify-content:center}.preview-item-mods img{width:22px!important;height:22px!important;border-radius:3px}.preview-item-mods .icon{width:22px!important;height:22px!important}.preview-talent-image img,.guide-talent-image{display:block;width:100%;max-height:560px;object-fit:contain;border:1px solid var(--border);border-radius:5px;background:#090908}.odt-wh-link{font-family:'Oswald',sans-serif}.odt-wh-link img{vertical-align:middle}.preview-gear-item>span{display:block;font-size:9px;color:var(--text-dim);margin-top:2px}
+@media(max-width:760px){.builder-gear-row{grid-template-columns:70px 50px minmax(0,1fr) 24px;gap:8px;padding:8px}.gear-icon-btn{width:46px;height:46px}.gear-icon-btn .wh-builder-link,.gear-icon-btn .wh-builder-link img,.gear-icon-btn img{width:40px;height:40px}.inline-input-row{grid-template-columns:1fr}.gear-url-line{flex-direction:column}.tiny-btn{width:100%}}
+
+/* ===== AJUSTES DEL CONSTRUCTOR ===== */
+.gear-url-line input,
+.inline-input-row input,
+.consumable-url-line input,
+.patch-select-field select{
+  background:var(--bg) !important;
+  color:var(--text) !important;
+  border:1px solid var(--border) !important;
+  color-scheme:dark;
+}
+.gear-url-line input::placeholder,
+.inline-input-row input::placeholder,
+.consumable-url-line input::placeholder{color:var(--text-dim);opacity:1}
+.inline-input-row{grid-template-columns:minmax(100px,.65fr) minmax(0,1fr) 26px;margin-bottom:5px}
+.inline-input-row select{min-width:0;padding:7px 8px;background:var(--bg)!important;border:1px solid var(--border)!important;border-radius:4px;color:var(--text)!important;font-size:11px;color-scheme:dark}
+.gear-mod-add{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px}
+.gear-mod-add .tiny-btn{padding:6px 9px}
+@media(max-width:760px){.inline-input-row{grid-template-columns:minmax(0,1fr) 26px}.inline-input-row select{grid-column:1/-1}.gear-mod-add .tiny-btn{width:auto}}
+.builder-gear-row{grid-template-columns:92px 58px minmax(0,1fr) 28px}
+.builder-gear-row .gear-row-main{min-width:0}
+.consumables-builder-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.consumable-builder-row{display:grid;grid-template-columns:70px minmax(0,1fr) 28px;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:6px;background:linear-gradient(180deg,rgba(255,255,255,.018),rgba(0,0,0,.08))}
+.consumable-type{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:.08em;color:var(--text-muted);text-transform:uppercase}
+.consumable-url-line{display:flex;gap:8px;min-width:0}
+.consumable-url-line input{flex:1;min-width:0;padding:9px 10px;border-radius:4px;font-size:11px;outline:none}
+.consumable-icon-btn{width:48px;height:48px;border:1px solid var(--border-soft);border-radius:5px;background:#0e0d0b;color:var(--gold);display:flex;align-items:center;justify-content:center;overflow:hidden;font-family:'Oswald',sans-serif;font-size:22px}
+.consumable-preview-icon{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:4px;overflow:hidden}
+.consumable-preview-icon a{display:inline-flex;align-items:center;justify-content:center;width:100%;height:100%}
+.patch-select-field select{padding:11px 12px;border-radius:4px;outline:none}
+.patch-help{font-size:10px;color:var(--text-dim);margin-top:6px;line-height:1.5}
+.preview-patch{display:inline-flex;align-items:center;border:1px solid var(--border-soft);color:var(--gold-light);font-family:'Oswald',sans-serif;font-size:9px;letter-spacing:.08em;padding:4px 7px;border-radius:3px;text-transform:uppercase;margin-left:5px}
+.preview-consumables{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:8px}
+.preview-consumable-item{padding:7px;border:1px solid rgba(255,255,255,.05);border-radius:3px;font-size:10px;color:var(--text-muted);display:flex;align-items:center;gap:6px}
+.preview-consumable-item img{width:24px;height:24px;border-radius:3px}
+
+@media(max-width:760px){
+  .consumables-builder-list{grid-template-columns:1fr}
+  .consumable-builder-row{grid-template-columns:65px minmax(0,1fr) 28px}
+  .consumable-url-line{flex-direction:column}
+}
+
+.gear-icon-btn .odt-icon-link,
+.consumable-preview-icon .odt-icon-link{font-size:0!important;line-height:1;display:inline-flex;align-items:center;justify-content:center;width:100%;height:100%;overflow:hidden}
+.gear-icon-btn .odt-icon-link img{width:46px!important;height:46px!important;object-fit:cover;border-radius:4px}
+.consumable-preview-icon .odt-icon-link img{width:24px!important;height:24px!important;object-fit:cover;border-radius:3px}
+
+
+/* ===== AJUSTES PUNTUALES DEL CONSTRUCTOR ===== */
+.builder-gear-row{align-items:center}
+.builder-gear-row .gear-row-main{align-self:center}
+.gear-url-line{align-items:center}
+.gear-url-line input{height:34px;padding:8px 10px}
+.gear-url-line .tiny-btn{height:34px;display:inline-flex;align-items:center;justify-content:center;padding:0 10px}
+.builder-gear-row .remove-btn{align-self:center;justify-self:center}
+
+/* ===== ENCANTAMIENTOS Y GEMAS · BLOQUES INDEPENDIENTES ===== */
+.extras-builder-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.extras-builder-card{border:1px solid var(--border);border-radius:6px;background:linear-gradient(180deg,rgba(255,255,255,.018),rgba(0,0,0,.08));padding:12px;min-width:0}
+.extras-builder-title{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:.1em;color:var(--gold-light);text-transform:uppercase;padding-bottom:8px;border-bottom:1px solid var(--border);margin-bottom:10px}
+.extras-builder-items{display:flex;align-items:center;gap:6px;min-height:30px;flex-wrap:wrap;margin-bottom:10px}
+.extra-icon-chip,.extra-manual-icon{width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:4px;background:#0e0d0b;overflow:hidden;flex:0 0 26px}
+.extra-icon-chip .odt-icon-link,.extra-manual-icon .odt-icon-link{font-size:0!important;display:flex!important;width:100%;height:100%;align-items:center;justify-content:center}
+.extra-icon-chip .odt-icon-link img,.extra-manual-icon .odt-icon-link img{width:24px!important;height:24px!important;object-fit:cover;border-radius:3px}
+.manual-extra-row{display:grid;grid-template-columns:minmax(0,1fr) 26px 26px;gap:6px;align-items:center;width:100%;margin-bottom:6px}
+.manual-extra-url{min-width:0;width:100%;height:30px;padding:6px 8px;background:var(--bg)!important;border:1px solid var(--border)!important;border-radius:4px;color:var(--text)!important;font-family:'Oswald',sans-serif;font-size:10px;outline:none}
+.manual-extra-url::placeholder{color:var(--text-dim);opacity:1}
+.extras-add-btn{width:100%;height:30px;border:1px solid var(--border);background:transparent;color:var(--gold-light);border-radius:4px;font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:.06em;cursor:pointer}
+.extras-add-btn:hover{border-color:var(--gold);background:rgba(201,162,79,.07)}
+.preview-extra-icons{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+#guideStats{resize:vertical!important;min-height:90px;max-height:420px;width:100%;overflow:auto}
+@media(max-width:860px){.extras-builder-grid{grid-template-columns:1fr}.manual-extra-row{grid-template-columns:minmax(0,1fr) 26px 26px}}
+
+/* ===== RESIZE DE CAMPOS DE TEXTO ===== */
+.create-shell textarea,
+.create-shell .talent-box,
+.create-shell #guideDescription,
+.create-shell #guideTalents,
+.create-shell #guideRotation,
+.create-shell #guideTips {
+  resize: vertical !important;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* ===== ESTADISTICAS: SOLO PRIORIDAD VERTICAL ===== */
+.stats-priority-grid{display:grid;gap:8px}.stats-priority-row{display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;align-items:center}.stats-priority-number{width:34px;height:34px;border:1px solid var(--border-soft);border-radius:5px;display:flex;align-items:center;justify-content:center;color:var(--gold-light);font-family:'Oswald',sans-serif;font-weight:700;background:rgba(201,162,79,.04)}.stats-priority-row select{width:100%;min-width:0;padding:9px 11px;background:var(--bg);border:1px solid var(--border);border-radius:4px;color:var(--text);font-family:'Inter',sans-serif;font-size:12px;outline:none}.stats-priority-row select:focus{border-color:var(--gold-dim)}
+
+/* ===== ALINEACION FINAL DE FILA DE EQUIPO ===== */
+.builder-gear-row .gear-icon-btn{
+  align-self:start;
+  width:65px;
+  height:65px;
+}
+.builder-gear-row .remove-btn{
+  align-self:start;
+  justify-self:center;
+  width:34px;
+  height:34px;
+}
+
+
+/* ===== ICONOS WOWHEAD: RENDER REAL Y TAMAÑO CONTROLADO ===== */
+.gear-icon-btn .odt-icon-link{font-size:0!important;line-height:0!important;display:flex!important;align-items:center;justify-content:center;width:100%;height:100%;overflow:hidden;text-decoration:none!important}
+.gear-icon-btn .odt-icon-link img,.gear-icon-btn .odt-icon-link .icon,.gear-icon-btn .odt-icon-link .icon img{width:58px!important;height:58px!important;max-width:58px!important;max-height:58px!important;object-fit:cover;border-radius:4px;display:block}
+.gear-icon-btn .odt-icon-link .icon{background-size:cover!important;background-position:center!important}
+.mini-socket.odt-icon-link{font-size:0!important;line-height:0!important;text-decoration:none!important}
+.mini-socket.odt-icon-link img,.mini-socket.odt-icon-link .icon,.mini-socket.odt-icon-link .icon img{width:20px!important;height:20px!important;max-width:20px!important;max-height:20px!important;object-fit:cover;border-radius:3px;display:block}
+.preview-item-mods .odt-icon-link,.preview-consumable-item .odt-icon-link,.preview-extra-icons .odt-icon-link{font-size:0!important;line-height:0!important;text-decoration:none!important;display:inline-flex!important;align-items:center;justify-content:center;overflow:hidden}
+.preview-item-mods .odt-icon-link{width:22px!important;height:22px!important}
+.preview-item-mods .odt-icon-link img,.preview-item-mods .odt-icon-link .icon,.preview-item-mods .odt-icon-link .icon img{width:22px!important;height:22px!important;max-width:22px!important;max-height:22px!important;object-fit:cover;border-radius:3px}
+.preview-consumable-item .odt-icon-link{width:24px!important;height:24px!important}
+.preview-consumable-item .odt-icon-link img,.preview-consumable-item .odt-icon-link .icon,.preview-consumable-item .odt-icon-link .icon img{width:24px!important;height:24px!important;max-width:24px!important;max-height:24px!important;object-fit:cover;border-radius:3px}
+
+/* ===== AJUSTE FINAL DE CENTRADO DE ICONOS ===== */
+.gear-icon-btn {
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 0 !important;
+  overflow: hidden !important;
+}
+.gear-icon-btn .odt-icon-link,
+.gear-icon-btn .wh-builder-link {
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
+  overflow: hidden !important;
+}
+.gear-icon-btn .odt-icon-link img,
+.gear-icon-btn .odt-icon-link ins,
+.gear-icon-btn .odt-icon-link .icon,
+.gear-icon-btn .wh-builder-link img,
+.gear-icon-btn .wh-builder-link ins,
+.gear-icon-btn .wh-builder-link .icon,
+.gear-icon-btn > img {
+  width: 46px !important;
+  height: 46px !important;
+  min-width: 46px !important;
+  min-height: 46px !important;
+  max-width: 46px !important;
+  max-height: 46px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  border-radius: 4px !important;
+  flex: 0 0 46px !important;
+}
+
+.mini-socket {
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 0 !important;
+  overflow: hidden !important;
+}
+.mini-socket .odt-icon-link,
+.mini-socket .wh-builder-link {
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
+  overflow: hidden !important;
+}
+.mini-socket .odt-icon-link img,
+.mini-socket .odt-icon-link ins,
+.mini-socket .odt-icon-link .icon,
+.mini-socket .wh-builder-link img,
+.mini-socket .wh-builder-link ins,
+.mini-socket .wh-builder-link .icon {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  border-radius: 3px !important;
+  flex: 0 0 18px !important;
+}
+
+.extra-icon-chip .odt-icon-link,
+.extra-manual-icon .odt-icon-link,
+.consumable-preview-icon .odt-icon-link {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+}
+.extra-icon-chip .odt-icon-link img,
+.extra-icon-chip .odt-icon-link ins,
+.extra-icon-chip .odt-icon-link .icon,
+.extra-manual-icon .odt-icon-link img,
+.extra-manual-icon .odt-icon-link ins,
+.extra-manual-icon .odt-icon-link .icon {
+  width: 24px !important;
+  height: 24px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+/* ===== CORRECCION DEFINITIVA: ICONOS REALMENTE CENTRADOS ===== */
+.gear-icon-btn .odt-icon-link,
+.gear-icon-btn .odt-icon-link:visited,
+.gear-icon-btn .odt-icon-link:hover,
+.mini-socket.odt-icon-link,
+.preview-item-mods .odt-icon-link,
+.preview-consumable-item .odt-icon-link,
+.preview-extra-icons .odt-icon-link{
+  position: relative !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
+  text-decoration: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  vertical-align: middle !important;
+  overflow: hidden !important;
+  transform: none !important;
+}
+
+/* Objeto: el icono ocupa el centro exacto del cuadro grande */
+.gear-icon-btn .odt-icon-link{
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+}
+.gear-icon-btn .odt-icon-link img,
+.gear-icon-btn .odt-icon-link ins,
+.gear-icon-btn .odt-icon-link .icon,
+.gear-icon-btn .odt-icon-link .icon img,
+.gear-icon-btn > img{
+  position: static !important;
+  inset: auto !important;
+  display: block !important;
+  width: 58px !important;
+  height: 58px !important;
+  min-width: 58px !important;
+  min-height: 58px !important;
+  max-width: 58px !important;
+  max-height: 58px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  flex: 0 0 58px !important;
+  object-fit: cover !important;
+  object-position: 50% 50% !important;
+  background-position: 50% 50% !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  border-radius: 4px !important;
+  transform: none !important;
+}
+
+/* Gemas/encantamientos: icono pequeño centrado sin depender del layout inline de Wowhead */
+.mini-socket .odt-icon-link,
+.mini-socket .wh-builder-link{
+  width: 100% !important;
+  height: 100% !important;
+}
+.mini-socket .odt-icon-link img,
+.mini-socket .odt-icon-link ins,
+.mini-socket .odt-icon-link .icon,
+.mini-socket .odt-icon-link .icon img,
+.mini-socket .wh-builder-link img,
+.mini-socket .wh-builder-link ins,
+.mini-socket .wh-builder-link .icon,
+.mini-socket .wh-builder-link .icon img{
+  position: static !important;
+  inset: auto !important;
+  display: block !important;
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  flex: 0 0 18px !important;
+  object-fit: cover !important;
+  object-position: 50% 50% !important;
+  background-position: 50% 50% !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  border-radius: 3px !important;
+  transform: none !important;
+}
+
+/* Misma correccion en la vista previa */
+.preview-item-mods .odt-icon-link{
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  min-height: 22px !important;
+}
+.preview-item-mods .odt-icon-link img,
+.preview-item-mods .odt-icon-link ins,
+.preview-item-mods .odt-icon-link .icon,
+.preview-item-mods .odt-icon-link .icon img{
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  min-height: 22px !important;
+  max-width: 22px !important;
+  max-height: 22px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  object-fit: cover !important;
+  object-position: 50% 50% !important;
+  background-position: 50% 50% !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  transform: none !important;
+}
+
+/* ===== AJUSTE EXCLUSIVO: CENTRADO DEL ICONO DE LA PIEZA DE ARMADURA ===== */
+.builder-gear-row .gear-icon-btn{
+  position:relative !important;
+  padding:0 !important;
+  overflow:hidden !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  line-height:0 !important;
+}
+.builder-gear-row .gear-icon-btn .odt-icon-link{
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  width:100% !important;
+  height:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  transform:translate(-50%,-50%) !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  line-height:0 !important;
+  font-size:0 !important;
+  overflow:hidden !important;
+}
+.builder-gear-row .gear-icon-btn .odt-icon-link img,
+.builder-gear-row .gear-icon-btn .odt-icon-link ins,
+.builder-gear-row .gear-icon-btn .odt-icon-link .icon,
+.builder-gear-row .gear-icon-btn .odt-icon-link .icon img,
+.builder-gear-row .gear-icon-btn > img{
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  width:58px !important;
+  height:58px !important;
+  min-width:58px !important;
+  min-height:58px !important;
+  max-width:58px !important;
+  max-height:58px !important;
+  margin:0 !important;
+  padding:0 !important;
+  transform:translate(-50%,-50%) !important;
+  display:block !important;
+  object-fit:cover !important;
+  object-position:center center !important;
+  background-position:center center !important;
+  background-size:100% 100% !important;
+  background-repeat:no-repeat !important;
+  border-radius:4px !important;
+  line-height:0 !important;
+  vertical-align:middle !important;
+  float:none !important;
+}
+
+/* ===== AJUSTE FINAL: ICONO DE ARMADURA CUADRADO SIN RECORTE ===== */
+.builder-gear-row .gear-icon-btn .odt-icon-link img,
+.builder-gear-row .gear-icon-btn .odt-icon-link ins,
+.builder-gear-row .gear-icon-btn .odt-icon-link .icon,
+.builder-gear-row .gear-icon-btn .odt-icon-link .icon img,
+.builder-gear-row .gear-icon-btn > img{
+  width:54px !important;
+  height:54px !important;
+  min-width:54px !important;
+  min-height:54px !important;
+  max-width:54px !important;
+  max-height:54px !important;
+  margin:0 !important;
+  padding:0 !important;
+  box-sizing:border-box !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  background-size:contain !important;
+  background-position:center center !important;
+  background-repeat:no-repeat !important;
+  border-radius:4px !important;
+}

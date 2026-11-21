@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="odt-hosting" content="github-pages">
+<link rel="icon" href="logo-toro.png" type="image/png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hermandad Orden del Toro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/00-core.css">
+  <link rel="stylesheet" href="css/01-header.css">
+  <link rel="stylesheet" href="css/02-home.css?v=20261121-remove-composition">
+  <link rel="stylesheet" href="css/03-roster.css?v=20261014-mobile-layout">
+  <link rel="stylesheet" href="css/04-about.css">
+  <link rel="stylesheet" href="css/05-community.css">
+  <link rel="stylesheet" href="css/06-guides.css">
+  <link rel="stylesheet" href="css/90-extra.css?v=20261121-remove-composition">
+  <link rel="stylesheet" href="css/07-overrides.css?v=20261113-full-width-talents">
+  <link rel="stylesheet" href="css/08-community-extra.css">
+  <link rel="stylesheet" href="css/10-home-redesign.css?v=20261121-fortaleza-fade">
+  <script src="https://wow.zamimg.com/js/tooltips.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <header>
+    <div class="header-inner wrap">
+      <div class="brand">
+        <img class="brand-icon" src="logo-toro.png?v=20261023-logo" alt="Orden del Toro">
+        <div class="brand-text">
+          <span class="eyebrow">HERMANDAD</span>
+          <div class="brand-title">ORDEN DEL TORO</div>
+        </div>
+      </div>
+      <nav id="mainNav" aria-label="Navegación principal">
+        <a class="nav-link active" data-page="inicio" onclick="navigate('inicio')">INICIO</a>
+        <a class="nav-link" data-page="raid" onclick="navigate('raid')">RAID</a>
+        <a class="nav-link" data-page="guias" href="#guias" onclick="navigate('guias'); return false;">GUÍAS</a>
+        <a class="nav-link" data-page="media" onclick="navigate('media')">GALERÍA</a>
+        <a class="nav-link" data-page="roster" onclick="navigate('roster')">MIEMBROS</a>
+        <a class="nav-link" data-page="reclutamiento" onclick="navigate('reclutamiento')">RECLUTAMIENTO</a>
+      </nav>
+      <div class="header-icons">
+        <a class="odt-discord-link" href="https://discord.gg/WdQYscBH7x" target="_blank" rel="noopener" title="Discord" aria-label="Unirse al Discord">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.7 5.1a18.4 18.4 0 0 0-4.5-1.4l-.6 1.2a17 17 0 0 0-5.2 0l-.6-1.2a18.4 18.4 0 0 0-4.5 1.4C1.5 9.3.7 13.4 1.1 17.5a18.5 18.5 0 0 0 5.5 2.8l1.2-2a12 12 0 0 1-1.9-.9l.5-.4a13 13 0 0 0 11.2 0l.5.4a12 12 0 0 1-1.9.9l1.2 2a18.5 18.5 0 0 0 5.5-2.8c.5-4.8-.8-8.9-3.2-12.4ZM8.8 14.7c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm6.4 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/></svg>
+        </a>
+        <button class="nav-toggle" type="button" aria-label="Abrir navegación" onclick="document.getElementById('mainNav').classList.toggle('open')">☰</button>
+      </div>
+    </div>
+  </header>
+  <main id="app" aria-live="polite"></main>
+  <script src="js/bootstrap.js?v=20261121-media-paragraphs"></script>
+</body>
+</html>

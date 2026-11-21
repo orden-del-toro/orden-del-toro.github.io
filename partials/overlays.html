@@ -1,0 +1,45 @@
+<div class="guides-overlay odt-image-article-overlay" id="imageDetailOverlay" onclick="if(event.target === this) closeImageDetail();">
+<div id="imageDetailContent" class="odt-image-article-content">
+<!-- Se llena desde JS -->
+</div>
+</div>
+
+<div class="guides-overlay" id="guidesOverlay" onclick="if(event.target === this) closeGuides();">
+<div class="guides-topbar">
+<div class="guides-topbar-title" id="guidesTopbarTitle">GUÍAS DE CLASE</div>
+<div class="guides-actions">
+<button class="guides-close" onclick="closeGuides()">✕ CERRAR</button>
+</div>
+</div>
+<div class="guides-body" onclick="if(event.target === this) closeGuides();">
+<div id="guidesGridView">
+<div id="classGroupsContainer"></div>
+<div id="specGridContainer" style="display:none;"></div>
+</div>
+<div id="guidesDetailView" style="display:none"></div>
+</div>
+</div>
+
+<div class="guides-overlay" id="playerDetailOverlay" onclick="if(event.target === this) closePlayerDetail();">
+<div class="guides-body" onclick="if(event.target === this) closePlayerDetail();">
+<div class="player-detail-content" id="playerDetailContent">
+<!-- Se llena desde JS -->
+</div>
+</div>
+</div>
+
+<div class="overlay" id="enchantOverlay" onclick="if(event.target === this) closeOverlay('enchantOverlay');">
+<div class="overlay-content">
+<button class="close-btn" onclick="closeOverlay('enchantOverlay')">✕</button>
+<h2 class="overlay-title">Encantamientos &amp; Gemas</h2>
+<div id="enchantContainer"></div>
+</div>
+</div>
+
+<div class="overlay" id="consumableOverlay" onclick="if(event.target === this) closeOverlay('consumableOverlay');">
+<div class="overlay-content">
+<button class="close-btn" onclick="closeOverlay('consumableOverlay')">✕</button>
+<h2 class="overlay-title">Consumibles</h2>
+<div id="consumableContainer"></div>
+</div>
+</div>

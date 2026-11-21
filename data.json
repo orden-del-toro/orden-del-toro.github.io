@@ -1,0 +1,895 @@
+{
+  "roster": {
+    "tanks": [
+      {
+        "name": "Rupp",
+        "ilvl": 0,
+        "spec": "",
+        "note": "Rango: Capitan",
+        "rank": "Capitan",
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/14177604",
+        "class": {
+          "name": "Guerrero",
+          "color": "#C79C6E",
+          "abbr": "GU"
+        }
+      }
+    ],
+    "healers": [
+      {
+        "name": "Srsexi",
+        "ilvl": 0,
+        "spec": "",
+        "rank": "Oficial",
+        "note": "Rango: Oficial",
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/15321013",
+        "class": {
+          "name": "Paladín",
+          "color": "#F58CBA",
+          "abbr": "PA"
+        }
+      },
+      {
+        "name": "Laddyfirefly",
+        "ilvl": 0,
+        "spec": "",
+        "rank": "Oficial",
+        "note": "Rango: Oficial",
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/16175476",
+        "class": {
+          "name": "Cazador",
+          "color": "#ABD473",
+          "abbr": "CZ"
+        }
+      },
+      {
+        "name": "Ildans",
+        "ilvl": 0,
+        "spec": "",
+        "rank": "Core",
+        "note": "Rango: Core",
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/3989445",
+        "class": {
+          "name": "Cazador",
+          "color": "#ABD473",
+          "abbr": "CZ"
+        }
+      },
+      {
+        "name": "Ifritl",
+        "ilvl": 0,
+        "spec": "",
+        "rank": "Core",
+        "note": "Rango: Core",
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/3996346",
+        "class": {
+          "name": "Cazador",
+          "color": "#ABD473",
+          "abbr": "CZ"
+        }
+      }
+    ],
+    "dps": [
+      {
+        "name": "Lïvie",
+        "ilvl": 0,
+        "spec": "",
+        "rank": "Teniente",
+        "note": "Rango: Teniente",
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/4367555",
+        "class": {
+          "name": "Druida",
+          "color": "#FF7D0A",
+          "abbr": "DR"
+        }
+      },
+      {
+        "name": "Qatarsio",
+        "ilvl": 0,
+        "spec": "",
+        "rank": "Teniente",
+        "note": "Rango: Teniente",
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/14356887",
+        "class": {
+          "name": "Mago",
+          "color": "#69CCF0",
+          "abbr": "MA"
+        }
+      },
+      {
+        "name": "Lòcò",
+        "ilvl": 0,
+        "spec": "",
+        "rank": "Heraldo",
+        "note": "Rango: Heraldo",
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/2241488",
+        "class": {
+          "name": "Guerrero",
+          "color": "#C79C6E",
+          "abbr": "GU"
+        }
+      },
+      {
+        "name": "Jedee",
+        "ilvl": 0,
+        "spec": "",
+        "rank": "Heraldo",
+        "note": "Rango: Heraldo",
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/3324151",
+        "class": {
+          "name": "Monje",
+          "color": "#00FF96",
+          "abbr": "MO"
+        }
+      },
+      {
+        "name": "Mmoonlady",
+        "ilvl": 0,
+        "spec": "",
+        "rank": "Heraldo",
+        "note": "Rango: Heraldo",
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/8314677",
+        "class": {
+          "name": "Cazador",
+          "color": "#ABD473",
+          "abbr": "CZ"
+        }
+      },
+      {
+        "name": "Цнюгдфяы",
+        "ilvl": 0,
+        "spec": "",
+        "rank": "Heraldo",
+        "note": "Rango: Heraldo",
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/15117737",
+        "class": {
+          "name": "Chamán",
+          "color": "#0070DE",
+          "abbr": "CH"
+        }
+      },
+      {
+        "name": "Ourodrogo",
+        "ilvl": 0,
+        "spec": "",
+        "rank": "Heraldo",
+        "note": "Rango: Heraldo",
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/15346263",
+        "class": {
+          "name": "Evocador",
+          "color": "#33937F",
+          "abbr": "EV"
+        }
+      },
+      {
+        "name": "Kormghar",
+        "ilvl": 0,
+        "spec": "",
+        "rank": "Heraldo",
+        "note": "Rango: Heraldo",
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/16089669",
+        "class": {
+          "name": "Guerrero",
+          "color": "#C79C6E",
+          "abbr": "GU"
+        }
+      },
+      {
+        "name": "Snóowball",
+        "ilvl": 0,
+        "spec": "",
+        "rank": "Heraldo",
+        "note": "Rango: Heraldo",
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/16114377",
+        "class": {
+          "name": "Druida",
+          "color": "#FF7D0A",
+          "abbr": "DR"
+        }
+      },
+      {
+        "name": "Jázon",
+        "ilvl": 0,
+        "spec": "",
+        "rank": "Heraldo",
+        "note": "Rango: Heraldo",
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/16453863",
+        "class": {
+          "name": "Caballero de la Muerte",
+          "color": "#C41F3B",
+          "abbr": "DK"
+        }
+      }
+    ],
+    "members": [
+      {
+        "name": "Rupp",
+        "rank": "Capitan",
+        "role": "",
+        "spec": "N/D",
+        "ilvl": 745,
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/14177604",
+        "id": "14177604",
+        "prefix": "10/14",
+        "class": {
+          "name": "Guerrero",
+          "color": "#C79C6E",
+          "abbr": "GU"
+        }
+      },
+      {
+        "name": "Laddyfirefly",
+        "rank": "Oficial",
+        "role": "",
+        "spec": "N/D",
+        "ilvl": 747,
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/16175476",
+        "id": "16175476",
+        "prefix": "10/14",
+        "class": {
+          "name": "Cazador",
+          "color": "#ABD473",
+          "abbr": "CZ"
+        }
+      },
+      {
+        "name": "Jázon",
+        "rank": "Oficial",
+        "role": "",
+        "spec": "N/D",
+        "ilvl": 760,
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/16453863",
+        "id": "16453863",
+        "prefix": "10/14",
+        "class": {
+          "name": "Caballero de la Muerte",
+          "color": "#C41F3B",
+          "abbr": "DK"
+        }
+      },
+      {
+        "name": "Tkillersx",
+        "rank": "Teniente",
+        "role": "",
+        "spec": "N/D",
+        "ilvl": 719,
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/392267",
+        "id": "392267",
+        "prefix": "10/14",
+        "class": {
+          "name": "Paladín",
+          "color": "#F58CBA",
+          "abbr": "PA"
+        }
+      },
+      {
+        "name": "Elhuezaso",
+        "rank": "Heraldo",
+        "role": "",
+        "spec": "N/D",
+        "ilvl": 754,
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/8632219",
+        "id": "8632219",
+        "prefix": "10/14",
+        "class": {
+          "name": "Paladín",
+          "color": "#F58CBA",
+          "abbr": "PA"
+        }
+      },
+      {
+        "name": "Ildans",
+        "rank": "Core",
+        "role": "",
+        "spec": "N/D",
+        "ilvl": 750,
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/3989445",
+        "id": "3989445",
+        "prefix": "10/14",
+        "class": {
+          "name": "Cazador de Demonios",
+          "color": "#A330C9",
+          "abbr": "DH"
+        }
+      },
+      {
+        "name": "Ifritl",
+        "rank": "Core",
+        "role": "",
+        "spec": "N/D",
+        "ilvl": 758,
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/3996346",
+        "id": "3996346",
+        "prefix": "10/14",
+        "class": {
+          "name": "Cazador de Demonios",
+          "color": "#A330C9",
+          "abbr": "DH"
+        }
+      },
+      {
+        "name": "Kersu",
+        "rank": "Core",
+        "role": "",
+        "spec": "N/D",
+        "ilvl": 733,
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/4346975",
+        "id": "4346975",
+        "prefix": "10/14",
+        "class": {
+          "name": "Paladín",
+          "color": "#F58CBA",
+          "abbr": "PA"
+        }
+      },
+      {
+        "name": "Carvedilol",
+        "rank": "Core",
+        "role": "",
+        "spec": "N/D",
+        "ilvl": 750,
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/9483827",
+        "id": "9483827",
+        "prefix": "10/14",
+        "class": {
+          "name": "Chamán",
+          "color": "#0070DE",
+          "abbr": "CH"
+        }
+      },
+      {
+        "name": "Цнюгдфяы",
+        "rank": "Core",
+        "role": "",
+        "spec": "N/D",
+        "ilvl": 717,
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/15117737",
+        "id": "15117737",
+        "prefix": "10/14",
+        "class": {
+          "name": "Chamán",
+          "color": "#0070DE",
+          "abbr": "CH"
+        }
+      },
+      {
+        "name": "Elementorin",
+        "rank": "Core",
+        "role": "",
+        "spec": "N/D",
+        "ilvl": 738,
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/15655263",
+        "id": "15655263",
+        "prefix": "10/14",
+        "class": {
+          "name": "Chamán",
+          "color": "#0070DE",
+          "abbr": "CH"
+        }
+      },
+      {
+        "name": "Eltranque",
+        "rank": "Core",
+        "role": "",
+        "spec": "N/D",
+        "ilvl": 753,
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/16379397",
+        "id": "16379397",
+        "prefix": "10/14",
+        "class": {
+          "name": "Guerrero",
+          "color": "#C79C6E",
+          "abbr": "GU"
+        }
+      },
+      {
+        "name": "Handuyn",
+        "rank": "Core",
+        "role": "",
+        "spec": "N/D",
+        "ilvl": 755,
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/16481728",
+        "id": "16481728",
+        "prefix": "10/14",
+        "class": {
+          "name": "Guerrero",
+          "color": "#C79C6E",
+          "abbr": "GU"
+        }
+      },
+      {
+        "name": "Gury",
+        "rank": "Core",
+        "role": "",
+        "spec": "N/D",
+        "ilvl": 758,
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/16502950",
+        "id": "16502950",
+        "prefix": "10/14",
+        "class": {
+          "name": "Cazador de Demonios",
+          "color": "#A330C9",
+          "abbr": "DH"
+        }
+      },
+      {
+        "name": "Kronns",
+        "rank": "Core",
+        "role": "",
+        "spec": "N/D",
+        "ilvl": 758,
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/16598962",
+        "id": "16598962",
+        "prefix": "10/14",
+        "class": {
+          "name": "Caballero de la Muerte",
+          "color": "#C41F3B",
+          "abbr": "DK"
+        }
+      },
+      {
+        "name": "Camello",
+        "rank": "Core",
+        "role": "",
+        "spec": "N/D",
+        "ilvl": 762,
+        "armoryUrl": "https://firestorm-servers.com/es/community/armory/10/14/16689985",
+        "id": "16689985",
+        "prefix": "10/14",
+        "class": {
+          "name": "Cazador de Demonios",
+          "color": "#A330C9",
+          "abbr": "DH"
+        }
+      }
+    ]
+  },
+  "recruitment": {
+    "dps": [
+      {
+        "name": "Mago",
+        "color": "#69ccf0"
+      },
+      {
+        "name": "Brujo",
+        "color": "#9482c9"
+      }
+    ],
+    "healers": [
+      {
+        "name": "Monje",
+        "color": "#00ff96"
+      }
+    ],
+    "tanks": [
+      {
+        "name": "Caballero de la Muerte",
+        "color": "#c41f3b"
+      }
+    ]
+  },
+  "progress": {
+    "raids": [
+      {
+        "name": "Palacio Nerub-Ar",
+        "nm": 8,
+        "hc": 8,
+        "mm": 4,
+        "icon": "https://cdn.altertime.es/dd799e30-9c15-4c67-a781-d5baeb2eacce.jfif",
+        "bosses": [
+          {
+            "name": "Encuentro 01",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          },
+          {
+            "name": "Encuentro 02",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          },
+          {
+            "name": "Encuentro 03",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          },
+          {
+            "name": "Encuentro 04",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          },
+          {
+            "name": "Encuentro 05",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          },
+          {
+            "name": "Encuentro 06",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          },
+          {
+            "name": "Encuentro 07",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          },
+          {
+            "name": "Encuentro 08",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          }
+        ],
+        "resources": [],
+        "description": "",
+        "expansion": "",
+        "season": "",
+        "heroImage": "https://cdn.altertime.es/dd799e30-9c15-4c67-a781-d5baeb2eacce.jfif"
+      },
+      {
+        "name": "Liberación Minahonda",
+        "nm": 8,
+        "hc": 8,
+        "mm": 3,
+        "icon": "https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/5P86SZQ4X2TF1740440514552.png",
+        "bosses": [
+          {
+            "name": "Encuentro 01",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          },
+          {
+            "name": "Encuentro 02",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          },
+          {
+            "name": "Encuentro 03",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          },
+          {
+            "name": "Encuentro 04",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          },
+          {
+            "name": "Encuentro 05",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          },
+          {
+            "name": "Encuentro 06",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          },
+          {
+            "name": "Encuentro 07",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          },
+          {
+            "name": "Encuentro 08",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          }
+        ],
+        "resources": [],
+        "description": "",
+        "expansion": "",
+        "season": "",
+        "heroImage": "https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/5P86SZQ4X2TF1740440514552.png"
+      },
+      {
+        "name": "Forja de Maná Omega",
+        "nm": 8,
+        "hc": 7,
+        "mm": 0,
+        "icon": "https://static.wikia.nocookie.net/es_wowpedia/images/d/de/Dimensius.png/revision/latest?cb=20250920205025",
+        "bosses": [
+          {
+            "name": "Encuentro 01",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          },
+          {
+            "name": "Encuentro 02",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          },
+          {
+            "name": "Encuentro 03",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          },
+          {
+            "name": "Encuentro 04",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          },
+          {
+            "name": "Encuentro 05",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          },
+          {
+            "name": "Encuentro 06",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          },
+          {
+            "name": "Encuentro 07",
+            "image": "https://wow.zamimg.com/uploads/screenshots/normal/1236205-rey-del-nexo-salhadaar.jpg",
+            "subtitle": "",
+            "summary": "FASE 1: Salhadaar aplica 3 acumulaciones de Juramento a toda la banda. Hay que eliminarlas participando en Conquistar, la habilidad circular que comparte daño. Los tanques deben orientar Doblegar, el cono frontal, lejos del grupo. Esquiva los rayos y las marcas de Decapitar, que infligen daño y dejan zonas peligrosas.\n\nFASE 2: El jefe monta su dragón. Los jugadores afectados por círculos deben colocarlos juntos en un mismo lado de la plataforma para generar los portales. Evita el Aliento dimensional y los rayos que salen de ellos.\n\nINTERMEDIO 1: La banda se divide en dos grupos y atraviesa los portales para eliminar los enemigos de las plataformas. Prioriza al Titán forjado en maná antes de que alcance 100 de energía e interrumpe a los príncipes del Nexo. Ambos grupos deben avanzar a un ritmo similar.\n\nINTERMEDIO 2: El jefe canaliza sobre su dragón durante 30 segundos. Todo el daño posible debe centrarse en el dragón, ya que la vida que conserve se convertirá en sanación para el jefe.\n\nFASE 3: Salhadaar combate solo. Los jugadores objetivo deben repartir las grietas por los bordes para que las Estrellas Oscuras queden separadas. Esquiva sus anillos y dirige los misiles del jefe y sus imágenes hacia las estrellas para destruirlas.",
+            "video": "https://www.youtube.com/watch?v=13gIhKE4jAQ&t=1s",
+            "roles": {
+              "tank": "• FASE 1: Alternar provocaciones durante Regla de subyugación. Las combinaciones incluyen Conquistar y Doblegar; ningún tanque debe recibir dos veces seguidas el mismo tipo dentro de una combinación. Conquistar se coloca sobre el grupo para repartir el daño y eliminar acumulaciones de Juramento. Orientar Doblegar fuera de la banda.\n\n• FASE 2: El tanque objetivo del Aliento dimensional debe usar mitigaciones y orientar el rayo lejos de la banda. Los demás jugadores deben esquivar los rayos de los portales.\n\n• INTERMEDIOS: En la primera transición, acompañar al grupo asignado y ayudar a controlar los enemigos. En la segunda, sobrevivir al daño mientras toda la banda ataca al dragón.\n\n• FASE 3: El jefe selecciona al tanque con Machaque galáctico y Golpe mataestrellas. Alternar provocaciones después de cada una de estas habilidades por la vulnerabilidad acumulada. Colocar correctamente los objetivos y evitar que los misiles atraviesen al grupo.",
+              "healer": "• INICIO: Preparar sanaciones de banda para el daño inicial y el empuje de Juramento. Mantener al grupo con vida mientras se absorbe Conquistar.\n\n• FASE 1: Salhadaar inflige daño constante a toda la banda. Vigilar Destierro, un efecto periódico de 8 segundos cuya expiración también daña al grupo. Preparar sanaciones para los momentos de daño elevado y las marcas de Decapitar.\n\n• FASE 2: Mantener especialmente vigilado al tanque que recibe el Aliento dimensional. Sanar el daño de los rayos y de las explosiones de los círculos.\n\n• INTERMEDIO 1: Atender el daño periódico de los Segadores de la Guardia de las Sombras y ayudar a mantener al grupo estable mientras elimina enemigos.\n\n• INTERMEDIO 2: Usar sanaciones potentes y, si es necesario, enfriamientos de banda durante el daño constante de la canalización sobre el dragón.\n\n• FASE 3: Priorizar a los jugadores golpeados por las habilidades y mantener la banda sana durante los movimientos y las mecánicas de las estrellas.",
+              "dps": "• FASE 1: Participar en Conquistar para eliminar las acumulaciones de Juramento. Nunca entrar en el cono de Doblegar. Esquivar los rayos y separarse cuando aparezcan las marcas de Decapitar. No acercarse a los dragones de los bordes.\n\n• FASE 2: Atacar al jefe y al dragón. Los jugadores afectados por círculos deben dejarlos juntos en un mismo lado de la plataforma. Esquivar el Aliento dimensional y los rayos de los portales.\n\n• INTERMEDIO 1: Dividirse según las asignaciones de la banda. Matar primero al Titán forjado en maná antes de que llegue a 100 de energía, interrumpir a los príncipes del Nexo y eliminar el resto de los enemigos. Esquivar proyectiles y rayos giratorios.\n\n• INTERMEDIO 2: Usar enfriamientos ofensivos para bajar al dragón todo lo posible antes de que termine la canalización. Esquivar sus ataques de líneas.\n\n• FASE 3: Los jugadores objetivo colocan las grietas de forma equilibrada en los bordes. Cuando aparezcan las estrellas, esquivar sus anillos. Los objetivos de Golpe mataestrellas deben dirigir los misiles hacia las estrellas para destruirlas; el resto de la banda debe apartarse de sus trayectorias."
+            }
+          },
+          {
+            "name": "Encuentro 08",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          }
+        ],
+        "resources": [],
+        "description": "",
+        "expansion": "",
+        "season": "",
+        "heroImage": "https://static.wikia.nocookie.net/es_wowpedia/images/d/de/Dimensius.png/revision/latest?cb=20250920205025"
+      }
+    ],
+    "homeRaidIndex": "2"
+  },
+  "schedule": [
+    {
+      "day": "Lunes",
+      "time": "HC · 4:0 ST",
+      "note": "MAIN PROGRESS"
+    },
+    {
+      "day": "Martes",
+      "time": "HC· 3:30 ST",
+      "note": "MAIN"
+    },
+    {
+      "day": "Jueves",
+      "time": "HC · 3:30 ST",
+      "note": "MAIN PROGRESS"
+    },
+    {
+      "day": "Miércoles",
+      "time": "NM",
+      "note": "ALTERS"
+    }
+  ],
+  "mplus": {
+    "title": "",
+    "subtitle": "",
+    "items": [
+      {
+        "key": "M+",
+        "name": "Grupos generales",
+        "time": "Activo"
+      },
+      {
+        "key": "PVP",
+        "name": "Individual",
+        "time": "Inactivo"
+      },
+      {
+        "key": "RAID",
+        "name": "Grupo interno",
+        "time": "Activo"
+      },
+      {
+        "key": "ABISMOS",
+        "name": "Individual",
+        "time": "Activo"
+      }
+    ]
+  },
+  "raids": [],
+  "media": [
+    {
+      "id": 1794563525948.228,
+      "name": "Orden del Toro: dos años forjando nuestra historia",
+      "date": "2026-11-05",
+      "description": "05/11/2024 – 05/11/2026 | Segundo aniversario\n\nEl 5 de noviembre de 2024 nació Orden del Toro, una hermandad construida sobre tres pilares fundamentales: el respeto, el compañerismo y el compromiso de crecer juntos.\n\nHoy celebramos nuestro segundo aniversario. Dos años de aventuras, desafíos, victorias, derrotas y, sobre todo, de personas que hicieron posible que esta hermandad siga en pie.\n\nA lo largo de este camino atravesamos momentos de alegría, dificultades y cambios que pusieron a prueba nuestra fortaleza. Sin embargo, cada experiencia nos dejó una enseñanza y nos permitió seguir construyendo nuestra propia historia.\n\nPorque una hermandad no se define únicamente por sus logros, sus integrantes o su progreso, sino por los vínculos que se forman entre quienes la componen.\n\nQueremos expresar nuestro más sincero agradecimiento a todos aquellos que forman y formaron parte de Orden del Toro. A quienes estuvieron desde nuestros primeros pasos, a quienes se incorporaron durante el camino y a quienes, de una manera u otra, dejaron su huella en nuestra historia.\n\nGracias por su tiempo, su confianza, su compromiso y por elegir compartir sus aventuras con nosotros.\n\nTodavía nos quedan innumerables desafíos por superar, historias por escribir y momentos por compartir.\n\nQue este aniversario nos recuerde de dónde venimos, cuánto hemos recorrido y todo lo que todavía podemos lograr juntos.\n\n¡Feliz segundo aniversario, Orden del Toro! 🐂\n\nPorque los personajes pueden cambiar, las expansiones pueden terminar, pero las historias que construimos juntos permanecen.\n\n— Rupp | Fundador de Orden del Toro",
+      "imageUrl": "uploads/1794563493551-117806877.png"
+    },
+    {
+      "id": 1782550780653.6802,
+      "name": "Dimensius NM",
+      "date": "2026-06-25",
+      "description": "Hoy la Hermandad tuvo el logro de conseguir derrotar a Dimensius en su dificultad NM! Se agradece la participacion de todos por esta aventura! <3 ",
+      "imageUrl": "uploads/1782550646234-494671302.png"
+    },
+    {
+      "id": 1782550878418.9863,
+      "name": "Gallywix NM",
+      "date": "2026-01-17",
+      "description": "La <Orden del Toro> acabo con Gallywix NM...!! Primer semana de apertura de la temporada 2 y ya tenemos este logro en el bolsillo!!!",
+      "imageUrl": "uploads/1782550840205-147341575.webp"
+    },
+    {
+      "id": 1782550979798.6035,
+      "name": "Palacio Nerub-ar",
+      "date": "2025-11-06",
+      "description": "La Hermandad acabó con la Reina! ",
+      "imageUrl": "uploads/1782550902458-884051648.webp"
+    },
+    {
+      "id": 1782551043504.227,
+      "name": "Fyrakk NM",
+      "date": "2025-03-19",
+      "description": "La Hermandad pudo terminar con Amildrassil NM !",
+      "imageUrl": "uploads/1782551010143-697955305.webp"
+    }
+  ],
+  "guides": {
+    "guerrero-proteccion": []
+  }
+}

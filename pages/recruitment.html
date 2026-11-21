@@ -1,0 +1,64 @@
+<div class="page" id="page-reclutamiento">
+<div class="wrap recruit-page">
+<div class="recruit-card">
+<div class="recruit-header">
+<h2>RECLUTAMIENTO</h2>
+<p>¿Quieres unirte a la Orden del Toro? Completa el formulario y envía tu solicitud al equipo de reclutamiento.</p>
+</div>
+<section class="odt-recruitment-openings" aria-labelledby="recruitmentOpeningsTitle">
+  <div class="odt-section-kicker">OPORTUNIDADES</div>
+  <h3 id="recruitmentOpeningsTitle">CLASES EN BÚSQUEDA</h3>
+  <div id="recruitmentContainer" class="odt-recruitment-list"></div>
+</section>
+<div class="recruit-actions">
+<button class="panel-cta recruit-button" onclick="toggleRecruitmentForm();">ABRIR FORMULARIO</button>
+</div>
+<div class="recruit-modal recruit-inline-form" id="inlineRecruitmentForm">
+<div class="recruit-modal-header">
+<h3>FORMULARIO DE RECLUTAMIENTO</h3>
+<p>Cuéntanos quién eres, tu clase y por qué quieres formar parte de la Orden del Toro.</p>
+</div>
+<form class="recruit-form" onsubmit="enviarSolicitud(event, 'reclutamiento')">
+<div class="form-column">
+<div class="form-row">
+<label>Nombre del personaje</label>
+<input name="personaje" placeholder="Nombre del personaje" required="" type="text"/>
+</div>
+<div class="form-row">
+<label>Clase</label>
+<input name="clase" placeholder="Clase" required="" type="text"/>
+</div>
+</div>
+<div class="form-column">
+<div class="form-row">
+<label>Especialización</label>
+<input name="espec" placeholder="Especialización" type="text"/>
+</div>
+<div class="form-row">
+<label>iLvl</label>
+<input name="ilvl" placeholder="iLvl" type="number"/>
+</div>
+</div>
+<div class="form-row">
+<label>Discord</label>
+<input name="discord" placeholder="Discord" required="" type="text"/>
+</div>
+<div class="form-row">
+<label>Armory / Perfil</label>
+<input name="armory" placeholder="https://firestorm-servers.com/es/community/armory/..." type="url"/>
+</div>
+<div class="form-row">
+<label>Experiencia e información adicional</label>
+<textarea name="mensaje" placeholder="Experiencia e información adicional" rows="5"></textarea>
+</div>
+<button class="panel-cta recruit-submit" type="submit">ENVIAR SOLICITUD</button>
+</form>
+</div>
+<section class="odt-recruitment-contact" aria-label="Contacto directo">
+  <span class="odt-recruitment-contact-label">CONTACTO</span>
+  <span class="odt-recruitment-contact-name">RUPP</span>
+  <a href="https://discord.gg/WdQYscBH7x" target="_blank" rel="noopener noreferrer" aria-label="Contactar a Rupp por Discord">DISCORD <span aria-hidden="true">↗</span></a>
+</section>
+</div>
+</div>
+</div>

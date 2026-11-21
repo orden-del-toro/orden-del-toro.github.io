@@ -1,0 +1,11 @@
+
+.odt-official-community-content .odt-community-text-block{margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.05)}
+.odt-official-community-content .odt-community-text-block h3{font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-light);margin:0 0 8px}
+.odt-official-community-content .odt-community-text-block p,.odt-community-preformatted{font-size:13px;line-height:1.75;color:var(--text-muted);white-space:pre-wrap;word-break:break-word;margin:0}
+.odt-community-code{font-family:monospace;font-size:12px;line-height:1.6;color:var(--text-muted);background:#090908;border:1px solid rgba(255,255,255,.06);border-radius:4px;padding:10px;white-space:pre-wrap;overflow-wrap:anywhere}
+.odt-community-source{margin-top:18px;padding-top:12px;border-top:1px solid rgba(255,255,255,.05);font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim)}
+
+
+
+.odt-community-guides-link{display:inline-flex;align-items:center;gap:7px;margin-left:10px;padding:8px 12px;border:1px solid var(--border-soft);border-radius:4px;background:rgba(201,162,79,.045);color:var(--gold-light);font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:.08em;cursor:pointer;transition:.2s}.odt-community-guides-link:hover{background:rgba(201,162,79,.12);border-color:var(--gold);color:var(--gold-light)}
+
