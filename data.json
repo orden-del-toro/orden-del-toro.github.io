@@ -456,116 +456,6 @@
   "progress": {
     "raids": [
       {
-        "name": "Forja de Maná Omega",
-        "nm": 8,
-        "hc": 7,
-        "mm": 0,
-        "icon": "https://static.wikia.nocookie.net/es_wowpedia/images/d/de/Dimensius.png/revision/latest?cb=20250920205025",
-        "bosses": [
-          {
-            "name": "Encuentro 01",
-            "image": "",
-            "subtitle": "",
-            "summary": "",
-            "video": "",
-            "roles": {
-              "tank": "",
-              "healer": "",
-              "dps": ""
-            }
-          },
-          {
-            "name": "Encuentro 02",
-            "image": "",
-            "subtitle": "",
-            "summary": "",
-            "video": "",
-            "roles": {
-              "tank": "",
-              "healer": "",
-              "dps": ""
-            }
-          },
-          {
-            "name": "Encuentro 03",
-            "image": "",
-            "subtitle": "",
-            "summary": "",
-            "video": "",
-            "roles": {
-              "tank": "",
-              "healer": "",
-              "dps": ""
-            }
-          },
-          {
-            "name": "Encuentro 04",
-            "image": "",
-            "subtitle": "",
-            "summary": "",
-            "video": "",
-            "roles": {
-              "tank": "",
-              "healer": "",
-              "dps": ""
-            }
-          },
-          {
-            "name": "Encuentro 05",
-            "image": "",
-            "subtitle": "",
-            "summary": "",
-            "video": "",
-            "roles": {
-              "tank": "",
-              "healer": "",
-              "dps": ""
-            }
-          },
-          {
-            "name": "Encuentro 06",
-            "image": "",
-            "subtitle": "",
-            "summary": "",
-            "video": "",
-            "roles": {
-              "tank": "",
-              "healer": "",
-              "dps": ""
-            }
-          },
-          {
-            "name": "Encuentro 07",
-            "image": "https://wow.zamimg.com/uploads/screenshots/normal/1236205-rey-del-nexo-salhadaar.jpg",
-            "subtitle": "",
-            "summary": "FASE 1: Salhadaar aplica 3 acumulaciones de Juramento a toda la banda. Hay que eliminarlas participando en Conquistar, la habilidad circular que comparte daño. Los tanques deben orientar Doblegar, el cono frontal, lejos del grupo. Esquiva los rayos y las marcas de Decapitar, que infligen daño y dejan zonas peligrosas.\n\nFASE 2: El jefe monta su dragón. Los jugadores afectados por círculos deben colocarlos juntos en un mismo lado de la plataforma para generar los portales. Evita el Aliento dimensional y los rayos que salen de ellos.\n\nINTERMEDIO 1: La banda se divide en dos grupos y atraviesa los portales para eliminar los enemigos de las plataformas. Prioriza al Titán forjado en maná antes de que alcance 100 de energía e interrumpe a los príncipes del Nexo. Ambos grupos deben avanzar a un ritmo similar.\n\nINTERMEDIO 2: El jefe canaliza sobre su dragón durante 30 segundos. Todo el daño posible debe centrarse en el dragón, ya que la vida que conserve se convertirá en sanación para el jefe.\n\nFASE 3: Salhadaar combate solo. Los jugadores objetivo deben repartir las grietas por los bordes para que las Estrellas Oscuras queden separadas. Esquiva sus anillos y dirige los misiles del jefe y sus imágenes hacia las estrellas para destruirlas.",
-            "video": "https://www.youtube.com/watch?v=13gIhKE4jAQ&t=1s",
-            "roles": {
-              "tank": "• FASE 1: Alternar provocaciones durante Regla de subyugación. Las combinaciones incluyen Conquistar y Doblegar; ningún tanque debe recibir dos veces seguidas el mismo tipo dentro de una combinación. Conquistar se coloca sobre el grupo para repartir el daño y eliminar acumulaciones de Juramento. Orientar Doblegar fuera de la banda.\n\n• FASE 2: El tanque objetivo del Aliento dimensional debe usar mitigaciones y orientar el rayo lejos de la banda. Los demás jugadores deben esquivar los rayos de los portales.\n\n• INTERMEDIOS: En la primera transición, acompañar al grupo asignado y ayudar a controlar los enemigos. En la segunda, sobrevivir al daño mientras toda la banda ataca al dragón.\n\n• FASE 3: El jefe selecciona al tanque con Machaque galáctico y Golpe mataestrellas. Alternar provocaciones después de cada una de estas habilidades por la vulnerabilidad acumulada. Colocar correctamente los objetivos y evitar que los misiles atraviesen al grupo.",
-              "healer": "• INICIO: Preparar sanaciones de banda para el daño inicial y el empuje de Juramento. Mantener al grupo con vida mientras se absorbe Conquistar.\n\n• FASE 1: Salhadaar inflige daño constante a toda la banda. Vigilar Destierro, un efecto periódico de 8 segundos cuya expiración también daña al grupo. Preparar sanaciones para los momentos de daño elevado y las marcas de Decapitar.\n\n• FASE 2: Mantener especialmente vigilado al tanque que recibe el Aliento dimensional. Sanar el daño de los rayos y de las explosiones de los círculos.\n\n• INTERMEDIO 1: Atender el daño periódico de los Segadores de la Guardia de las Sombras y ayudar a mantener al grupo estable mientras elimina enemigos.\n\n• INTERMEDIO 2: Usar sanaciones potentes y, si es necesario, enfriamientos de banda durante el daño constante de la canalización sobre el dragón.\n\n• FASE 3: Priorizar a los jugadores golpeados por las habilidades y mantener la banda sana durante los movimientos y las mecánicas de las estrellas.",
-              "dps": "• FASE 1: Participar en Conquistar para eliminar las acumulaciones de Juramento. Nunca entrar en el cono de Doblegar. Esquivar los rayos y separarse cuando aparezcan las marcas de Decapitar. No acercarse a los dragones de los bordes.\n\n• FASE 2: Atacar al jefe y al dragón. Los jugadores afectados por círculos deben dejarlos juntos en un mismo lado de la plataforma. Esquivar el Aliento dimensional y los rayos de los portales.\n\n• INTERMEDIO 1: Dividirse según las asignaciones de la banda. Matar primero al Titán forjado en maná antes de que llegue a 100 de energía, interrumpir a los príncipes del Nexo y eliminar el resto de los enemigos. Esquivar proyectiles y rayos giratorios.\n\n• INTERMEDIO 2: Usar enfriamientos ofensivos para bajar al dragón todo lo posible antes de que termine la canalización. Esquivar sus ataques de líneas.\n\n• FASE 3: Los jugadores objetivo colocan las grietas de forma equilibrada en los bordes. Cuando aparezcan las estrellas, esquivar sus anillos. Los objetivos de Golpe mataestrellas deben dirigir los misiles hacia las estrellas para destruirlas; el resto de la banda debe apartarse de sus trayectorias."
-            }
-          },
-          {
-            "name": "Encuentro 08",
-            "image": "",
-            "subtitle": "",
-            "summary": "",
-            "video": "",
-            "roles": {
-              "tank": "",
-              "healer": "",
-              "dps": ""
-            }
-          }
-        ],
-        "resources": [],
-        "description": "",
-        "expansion": "The War Within",
-        "season": "",
-        "heroImage": "https://static.wikia.nocookie.net/es_wowpedia/images/d/de/Dimensius.png/revision/latest?cb=20250920205025"
-      },
-      {
         "name": "La Aguja del Vacio",
         "nm": 0,
         "hc": 0,
@@ -663,15 +553,15 @@
         "description": "",
         "bosses": [
           {
-            "name": "Encuentro 01",
+            "name": "Chimaerus, el Dios Inconcebible",
             "image": "",
-            "subtitle": "",
-            "summary": "",
+            "subtitle": "Alterná los grupos para entrar en Aln, rompé los escudos de las manifestaciones y rematalas afuera antes de que Chimaerus las devore.",
+            "summary": "FASE PRINCIPAL. Dividí la banda en dos grupos, cada uno con un tanque y\nsanadores. En cada Agitación de polvo de Aln, entra solo el grupo asignado.\nAdentro se rompen los escudos de las manifestaciones. Eso las traslada\nafuera, donde el otro grupo debe matarlas antes de que lleguen al jefe.\n\nFASE AÉREA. A 100 de energía, Chimaerus usa Consumir y levanta vuelo.\nSi quedan manifestaciones vivas, las devora y se potencia. Esquivá las\npasadas marcadas y eliminá los refuerzos antes de que vuelva a aterrizar.\n\nHEROICO. Cada ronda suma más esencias inquietantes. Los jugadores con\nMiasma acuciante deben acercarse a un charco y pedir una disipación para\nlimpiarlo. Priorizá los charcos del centro y de las rutas de movimiento.",
             "video": "",
             "roles": {
-              "tank": "",
-              "healer": "",
-              "dps": ""
+              "tank": "• AGITACIÓN DE POLVO DE ALN. Colocá el círculo a un costado para que entre\n  tu grupo. Después del impacto, el otro tanque provoca a Chimaerus.\n\n• DENTRO DE ALN. Agrupá las manifestaciones lejos del jefe antes de que\n  pierdan sus escudos. Usá mitigación para Golpes colosales y dejá los\n  charcos fuera de las rutas de movimiento.\n\n• FASE AÉREA. Agarrá los refuerzos que salen tras cada pasada. Evitá el\n  borde durante Consumir y ayudá a rematar todo antes del aterrizaje.",
+              "healer": "• FASE PRINCIPAL. Entrá en Aln con tu grupo asignado. Prepará sanaciones\n  para Rugido discordante: cada rugido del horror colosal pega más fuerte\n  que el anterior.\n\n• FASE AÉREA. Reservá sanación de banda para Flema cáustica y vigilá\n  al grupo durante Consumir y el aterrizaje.\n\n• HEROICO. Disipá Miasma acuciante cuando el círculo del jugador toque\n  un charco. Coordiná la limpieza para recuperar espacio sin golpear\n  al resto del grupo.",
+              "dps": "• DENTRO DE ALN. Enfocá primero al horror colosal y dale tiempo al tanque\n  para juntar a los pequeños. Interrumpí Grito temible y Saeta de esencia\n  de las esencias inquietantes.\n\n• FUERA DE ALN. Cambiá a las manifestaciones apenas aparezcan. Frenalas\n  con ralentizaciones o aturdimientos y rematalas antes de que lleguen\n  al jefe o termine Consumir.\n\n• DURANTE TODA LA PELEA. Esquivá el frontal de Desgarro sajador y las\n  pasadas del jefe. En el aire, priorizá los refuerzos y matalos antes\n  del aterrizaje. Usen Heroísmo o Ansia de sangre al inicio."
             }
           }
         ],
@@ -689,27 +579,27 @@
         "description": "",
         "bosses": [
           {
-            "name": "Encuentro 01",
+            "name": "Belo'ren, Hijo de Al'ar",
             "image": "",
-            "subtitle": "",
-            "summary": "",
-            "video": "",
+            "subtitle": "Cubrí los ataques de tu color, cortá las ascuas y destruí sus huevos. Guardá Heroísmo para el huevo de Belo'ren.",
+            "summary": "FASE FÉNIX. Belo'ren asigna Luz o Vacío a cada jugador. Compartí los\nimpactos y abrí paso entre los orbes de tu color. Después de cada\nimpacto aparece un ascua. Matala y destruí su huevo antes de que renazca.\n\nFASE HUEVO. Cuando el fénix cae, alejate del impacto en el centro y atacá\nel huevo principal. Movete a los sectores de tu color y usá tus habilidades\nofensivas. Si el huevo sobrevive, Belo'ren renace. Revisá tu nuevo color:\ndesde esa ronda salen impactos de ambos colores.\n\nHEROICO. Las Péndolas imbuidas apuntan a un jugador del color opuesto.\nUn jugador del mismo color que la péndola debe ponerse en su trayectoria\npara interceptarla.",
+            "video": "https://www.youtube.com/watch?v=9uLpjRzyxWw",
             "roles": {
-              "tank": "",
-              "healer": "",
-              "dps": ""
+              "tank": "• EDICTO DEL GUARDIÁN. El tanque de Luz recibe el cono de Luz y el de\n  Vacío recibe el de Vacío. Si salen juntos, cada uno cubre su lado.\n  Si un cono queda vacío o golpea al color contrario, el jefe se potencia.\n\n• POSICIÓN. Mantené los conos fuera del grupo y revisá qué tenés atrás.\n  El empujón puede mandarte contra un orbe o un charco.\n\n• TRAS EL RENACER. Confirmá tu color antes del siguiente Edicto y\n  acercá al jefe a las ascuas cuando haya espacio para pegarles juntos.",
+              "healer": "• FASE FÉNIX. Prepará sanación grupal para los impactos de las ascuas.\n  Si salen dos círculos, cada uno se cubre con jugadores de su color.\n\n• FASE HUEVO. Cubrí el daño de Caída de muerte y curá por completo las\n  absorciones de Quemaduras eternas, que siguen haciendo daño mientras\n  estén activas. Movete a los sectores de tu color para seguir curando.\n\n• RENACIMIENTOS. La sanación se reduce cada vez que vuelve el fénix.\n  Repartí los defensivos de banda entre las rondas.",
+              "dps": "• ORBES E IMPACTOS. Tocá orbes de tu color para abrir un hueco. Si te\n  marca un impacto, llevalo a la posición asignada para que el charco\n  quede fuera de la ruta del grupo. Compartilo con tu color.\n\n• ASCUAS. Todos pueden atacarlas, pero solo los jugadores de su mismo\n  color pueden cortar Erupción. Apenas caiga un ascua, cambiá a su huevo\n  para evitar que renazca.\n\n• HUEVO PRINCIPAL. Guardá Heroísmo o Ansia de sangre y tus habilidades\n  ofensivas para esta fase. En Heroico, interceptá las péndolas de tu\n  color cuando estén dirigidas a otro jugador."
             }
           },
           {
-            "name": "Encuentro 02",
+            "name": "L'ura, Caída de la medianoche",
             "image": "",
-            "subtitle": "",
-            "summary": "",
-            "video": "",
+            "subtitle": "Ordená las runas, rompé los núcleos con los rayos y guardá los cristales del alba para proteger a la banda de Arcángel oscuro.",
+            "summary": "FASE 1. En Réquiem de la muerte, los marcados se ordenan para que el rayo\ngiratorio los golpee en la misma secuencia que mostró L'ura. Son tres\nrunas en Normal y cinco en Heroico. Esquivá las agujas y los rayos,\ncortá las matrices y recogé los cristales del alba cuando estén listos.\n\nINTERMEDIO. Durante Eclipse total, resistí la atracción hacia el centro,\nesquivá los rayos y orientá las marcas de estrella lejos del grupo.\n\nFASE 2. Apuntá las cuatro líneas de cada tanda a núcleos distintos.\nRepartilas en cruz para compensar la atracción de los vórtices. Hay tres\ntandas. Esquivá los núcleos cuando salgan disparados hacia L'ura.\n\nFASE 3. Quedate bajo la luz de los cristales. Usá un cristal por cada\nArcángel oscuro para levantar una Barrera Albaluz y, tras el impacto,\nmovete con el grupo a suelo limpio. Esquivá las constelaciones.",
+            "video": "https://www.youtube.com/watch?v=cmJB2MxFRr0",
             "roles": {
-              "tank": "",
-              "healer": "",
-              "dps": ""
+              "tank": "• LANZA CELESTIAL. Usá mitigación para la secuencia de cinco golpes.\n  El otro tanque provoca al terminar el quinto, cuando su Empalado\n  ya haya expirado.\n\n• FASE 1. Mantené estable la posición del jefe durante Réquiem de la\n  muerte. El rayo arranca desde el tanque y gira en sentido horario.\n\n• FASE 2. Si te marca una línea, apuntala al núcleo asignado sin\n  cruzar el borde. En Heroico, la estrategia del video deja que el\n  tanque cubra su propia línea con mitigación y entregue su cristal\n  antes de esta fase si lleva uno.",
+              "healer": "• FASE 1. Curá los cristales del ocaso al máximo para transformarlos\n  en cristales del alba. Los jugadores asignados deben recogerlos\n  enseguida. Vigilá a los portadores por el daño continuo.\n\n• INTERMEDIO Y FASE 2. Repartí las sanaciones de banda entre Eclipse\n  total y las tandas de líneas. En Heroico, cubrí los grupos asignados\n  durante el intermedio y prepará sanación para los impactos compartidos.\n\n• FASE 3. Mantené con vida a los portadores y movete con su grupo.\n  En Heroico, si un cristal recibe daño cósmico directo, aparecen\n  dos Lágrimas de L'ura. Tiene que haber un jugador en cada círculo.",
+              "dps": "• FASE 1. Si te marca una runa, ocupá el lugar que indique el líder.\n  Cortá o disipá las cargas de las matrices de salvaguardia y destruí\n  los cristales de la medianoche antes de Fractura cósmica.\n\n• FASE 2. Si te marca una línea, alineala con un núcleo libre y respetá\n  la formación en cruz. En Heroico, ayudá a repartir el daño de la\n  línea asignada. Si llevás un cristal, quedate fuera salvo que te marque.\n\n• FASE 3. Esquivá las líneas que unen las estrellas. En Heroico, repartí\n  la banda entre los tres círculos grandes y quedate dentro hasta que\n  desaparezcan, con un portador de cristal en cada grupo. Limpialos\n  antes del siguiente Arcángel oscuro."
             }
           }
         ],
