@@ -45,7 +45,8 @@
 
       await loadScript('js/documents.js?v=20261126-local');
       await loadScript('js/guide-patches.js?v=20261126-local-documents');
-      await loadScript('js/app.js?v=20261126-local-documents');
+      await loadScript('js/discord-submission.js?v=20261127-discord');
+      await loadScript('js/app.js?v=20261127-discord');
       await loadScript('js/navigation.js');
       await loadScript('js/gear.js');
       await loadScript('js/community.js?v=20261126-local-documents');

@@ -1383,6 +1383,11 @@ function renderRecruitment() {
   const container = document.getElementById('recruitmentContainer');
   if (!container) return;
   const r = CONFIG.recruitment;
+  const contact = document.querySelector('.odt-recruitment-contact a');
+  if (contact && window.ODTDiscordSubmission) {
+    contact.href = ODTDiscordSubmission.destination(r?.discordContactUrl).url;
+    contact.setAttribute('aria-label','Abrir el perfil de Rupp en Discord');
+  }
   const colors = { dps: '#0070DE', healers: '#FFFFFF', tanks: '#C41F3B' };
   const labels = { dps: 'DPS', healers: 'SANADORES', tanks: 'TANQUE' };
   let html = '';
@@ -2343,6 +2348,11 @@ async function enviarSolicitud(event, tipo) {
     fecha: new Date().toISOString(),
     leido: false
   };
+
+  if (tipo === 'reclutamiento') {
+    ODTDiscordSubmission.show(data, { profileUrl: CONFIG?.recruitment?.discordContactUrl });
+    return;
+  }
 
   const submitBtn = form.querySelector('button[type="submit"]');
   const originalBtnText = submitBtn ? submitBtn.textContent : '';
