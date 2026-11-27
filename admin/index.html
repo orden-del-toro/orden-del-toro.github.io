@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="referrer" content="no-referrer">
+  <title>Admin · Orden del Toro</title>
+  <link rel="icon" href="../logo-toro.png" type="image/png">
+  <link rel="stylesheet" href="portal.css">
+  <script src="github-client.js?v=20261127-mobile" defer></script>
+  <script src="portal.js?v=20261127-mobile" defer></script>
+</head>
+<body>
+  <main id="login" class="login">
+    <img src="../logo-toro.png" class="logo" alt="Orden del Toro">
+    <p class="eyebrow">HERMANDAD · ADMINISTRACIÓN</p>
+    <h1>Orden del Toro</h1>
+    <p>Administrá la página desde tu celular o computadora. Los cambios se guardan en GitHub y podés publicarlos desde acá.</p>
+    <form id="loginForm">
+      <label for="credential">Credencial de acceso de GitHub</label>
+      <input id="credential" type="password" autocomplete="off" autocapitalize="none" spellcheck="false" required placeholder="github_pat_…">
+      <p class="hint">Ingresala únicamente en esta página. Se usa durante esta pestaña y se elimina al salir; no se guarda en el navegador.</p>
+      <button id="connect" type="submit">Abrir administrador</button>
+    </form>
+    <p id="loginStatus" role="status" aria-live="polite"></p>
+    <details>
+      <summary>Configurar el acceso por primera vez</summary>
+      <ol>
+        <li>Abrí <a id="createCredential" href="https://github.com/settings/personal-access-tokens/new?name=Admin+Orden+del+Toro&amp;target_name=orden-del-toro&amp;expires_in=30&amp;contents=write" target="_blank" rel="noopener noreferrer">crear credencial en GitHub</a> con tu cuenta <strong>Rupp-ar</strong>.</li>
+        <li>En <strong>Repository access</strong>, elegí <strong>Only select repositories</strong> y seleccioná <strong>admin-privado</strong> y <strong>orden-del-toro.github.io</strong>, de la organización <strong>orden-del-toro</strong>.</li>
+        <li>En permisos, verificá <strong>Contents: Read and write</strong>. Luego tocá <strong>Generate token</strong>.</li>
+        <li>Copiá la credencial y pegala en el campo de arriba. GitHub la muestra una sola vez: podés conservarla en tu gestor de contraseñas.</li>
+      </ol>
+      <p>Solo tu cuenta tiene acceso al panel privado. Cuando venza la credencial, podés crear otra desde el mismo enlace.</p>
+    </details>
+    <a class="back" href="../">Volver a la página de la hermandad</a>
+  </main>
+  <section id="workspace" hidden>
+    <header class="session"><span>ADMIN · <strong id="account"></strong></span><button type="button" id="signOut">Salir</button></header>
+    <iframe id="adminFrame" title="Administrador de Orden del Toro" sandbox="allow-scripts allow-forms allow-downloads allow-popups allow-popups-to-escape-sandbox" referrerpolicy="no-referrer"></iframe>
+  </section>
+</body>
+</html>

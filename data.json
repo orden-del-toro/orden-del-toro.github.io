@@ -611,21 +611,21 @@
   "schedule": [
     {
       "day": "Lunes",
-      "time": "HC · 4:0 ST",
+      "time": "NM · 2:01 ST",
       "note": "MAIN PROGRESS"
     },
     {
       "day": "Martes",
-      "time": "HC· 3:30 ST",
+      "time": "NM · 2:01 ST",
       "note": "MAIN"
     },
     {
       "day": "Jueves",
-      "time": "HC · 3:30 ST",
-      "note": "MAIN PROGRESS"
+      "time": "PvP PREMADE 4:05 st",
+      "note": "ACTIVIDAD"
     },
     {
-      "day": "Miércoles",
+      "day": "Viernes",
       "time": "NM",
       "note": "ALTERS"
     }
