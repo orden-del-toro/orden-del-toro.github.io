@@ -43,12 +43,12 @@
       appendHtml(document.body, await fetchText('partials/overlays.html'));
       appendHtml(document.body, await fetchText('partials/footer.html'));
 
-      await loadScript('js/guide-patches.js?v=20261113-fixed-guide-size');
-      await loadScript('js/app.js?v=20261121-media-paragraphs');
-      await loadScript('js/firebase.js');
+      await loadScript('js/documents.js?v=20261126-local');
+      await loadScript('js/guide-patches.js?v=20261126-local-documents');
+      await loadScript('js/app.js?v=20261126-local-documents');
       await loadScript('js/navigation.js');
       await loadScript('js/gear.js');
-      await loadScript('js/community.js?v=20261006-3');
+      await loadScript('js/community.js?v=20261126-local-documents');
     } catch (error) {
       console.error('[ODT] No se pudo cargar el proyecto modular:', error);
       root.innerHTML = '<div style="padding:40px;color:#e6c989;font-family:Inter,sans-serif">No se pudo cargar la interfaz. Revisa que el sitio esté servido por HTTP/HTTPS y no abierto directamente como archivo local.</div>';

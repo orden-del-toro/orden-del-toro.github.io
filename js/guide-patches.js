@@ -49,38 +49,37 @@
     return { key, guide: guides[key] };
   }
 
-  async function ensureFirestorePatch(db, firebase, patchValue, options = {}) {
+  const patchQueues = new WeakMap();
+  function ensureGuidePatch(db, patchValue, options = {}) {
+    const result = (patchQueues.get(db) || Promise.resolve()).then(() => registerGuidePatch(db, patchValue, options));
+    patchQueues.set(db, result.catch(() => {}));
+    return result;
+  }
+  async function registerGuidePatch(db, patchValue, options = {}) {
     const patch = normalizePatch(patchValue);
     if (!patch) throw new Error('No se pudo identificar un parche único para la guía.');
     const collection = db.collection('guidePatches');
-    let snapshot;
-    try { snapshot = await collection.get(); }
-    catch (error) {
-      if (!/permission-denied|insufficient permissions/i.test(String(error.code || '') + ' ' + error.message)) throw error;
-      snapshot = await collection.where('active', '==', true).get();
-    }
+    const snapshot = await collection.get();
     const matches = snapshot.docs.filter(doc => normalizePatch(doc.data().name) === patch);
     matches.sort((a, b) => Number(b.data().active !== false) - Number(a.data().active !== false)
       || a.id.localeCompare(b.id));
     // El ID determinista evita duplicados también entre importaciones simultáneas.
     const ref = collection.doc(matches[0]?.id || `patch-${patchKey(patch)}`);
-    return db.runTransaction(async transaction => {
-      const current = await transaction.get(ref);
-      const timestamp = firebase.firestore.FieldValue.serverTimestamp();
+      const current = await ref.get();
+      const timestamp = new Date().toISOString();
       if (current.exists) {
         const changes = {};
         if (current.data().active === false) changes.active = true;
-        if (Object.keys(changes).length) transaction.update(ref, { ...changes, updatedAt: timestamp });
+        if (Object.keys(changes).length) await ref.update({ ...changes, updatedAt: timestamp });
         return { id: ref.id, name: current.data().name || patch, patch, created: false };
       }
-      transaction.set(ref, {
+      await ref.set({
         name: patch, active: true,
         order: options.order ?? snapshot.docs.length,
         createdAt: timestamp, updatedAt: timestamp,
         createdBy: options.userId || ''
       });
       return { id: ref.id, name: patch, patch, created: true };
-    });
   }
 
   function mergeGuidePatches(patches, guides) {
@@ -102,5 +101,5 @@
       || a.name.localeCompare(b.name, undefined, { numeric: true }));
   }
 
-  return { normalizePatch, patchKey, specIdFromKey, storeImportedGuide, ensureFirestorePatch, mergeGuidePatches };
+  return { normalizePatch, patchKey, specIdFromKey, storeImportedGuide, ensureGuidePatch, mergeGuidePatches };
 });

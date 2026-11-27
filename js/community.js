@@ -8,9 +8,9 @@
 
   async function loadPublishedCommunityGuides(){
     var box=document.getElementById('publishedCommunityGuides');
-    if(!box || !window.firebase || !firebase.firestore) return;
+    if(!box || !window.ODTDocuments) return;
     try{
-      var snapshot=await firebase.firestore().collection('communityGuides')
+      var snapshot=await ODTDocuments.create().collection('communityGuides')
         .where('status','==','published').limit(6).get();
       var guides=snapshot.docs.map(function(doc){return Object.assign({id:doc.id},doc.data());});
       guides.sort(function(a,b){

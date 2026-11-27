@@ -1,21 +1,8 @@
 
 // ==========================================
-// CONFIGURACIÓN DE FIREBASE (cámbiala por la tuya)
+// DATOS PÚBLICOS Y API LOCAL
 // ==========================================
-const firebaseConfig = {
-  apiKey: "AIzaSyCGZbHJwd1aiw2av6m29-BMIOQ_5ILm2dA",
-  authDomain: "orden-del-toro.firebaseapp.com",
-  projectId: "orden-del-toro",
-  storageBucket: "orden-del-toro.firebasestorage.app",
-  messagingSenderId: "498270408714",
-  appId: "1:498270408714:web:b96aa7d1df32d886ec8ff3"
-};
-
-// Inicializar Firebase (solo una vez)
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-}
-const db = firebase.firestore();
+const db = ODTDocuments.create();
 let guidePatchOptions = [];
 let guidePatchOptionsLoaded = false;
 
@@ -495,13 +482,6 @@ function renderGallery() {
   let html = '';
   items.forEach((item, index) => {
     let imgUrl = String(item.imageUrl || '');
-    if (imgUrl.includes('firebasestorage.googleapis.com')) {
-      const match = imgUrl.match(/images%2F([^?]+)/);
-      if (match) {
-        const filename = decodeURIComponent(match[1]);
-        imgUrl = 'uploads/' + filename.replace(/\.(png|jpg|jpeg|gif)$/i, '.webp');
-      }
-    }
     if (!imgUrl) return;
     const alt = escapeHomeValue(item.name || 'Imagen de la hermandad');
     const title = escapeHomeValue(item.name || 'Registro de la hermandad');
@@ -2344,7 +2324,7 @@ function toggleRecruitmentForm() {
 
 
 // ==========================================
-// ENVIAR SOLICITUD (contacto / reclutamiento) - VERSIÓN FIRESTORE
+// ENVIAR SOLICITUD (contacto / reclutamiento) - API LOCAL
 // ==========================================
 async function enviarSolicitud(event, tipo) {
   event.preventDefault();
@@ -2369,7 +2349,7 @@ async function enviarSolicitud(event, tipo) {
   if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'ENVIANDO...'; }
 
   try {
-    await db.collection('solicitudes').add(data);
+    await ODTDocuments.sendRequest(data);
     alert('✅ Solicitud enviada correctamente. Un oficial se pondrá en contacto.');
     form.reset();
     if (tipo === 'reclutamiento') {
@@ -2377,11 +2357,7 @@ async function enviarSolicitud(event, tipo) {
     }
   } catch (error) {
     console.error(error);
-    if (error.code === 'permission-denied') {
-      alert('❌ No se pudo enviar: el servidor no tiene permiso para guardar la solicitud. Avisale al oficial de la hermandad (reglas de Firestore).');
-    } else {
-      alert('❌ Error de conexión al enviar la solicitud. Probá de nuevo en un momento.');
-    }
+    alert('❌ ' + (error.message || 'No se pudo enviar la solicitud.'));
   } finally {
     if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalBtnText; }
   }

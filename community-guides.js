@@ -1,9 +1,7 @@
-const firebaseConfig={apiKey:'AIzaSyCGZbHJwd1aiw2av6m29-BMIOQ_5ILm2dA',authDomain:'orden-del-toro.firebaseapp.com',projectId:'orden-del-toro',storageBucket:'orden-del-toro.firebasestorage.app',messagingSenderId:'498270408714',appId:'1:498270408714:web:b96aa7d1df32d886ec8ff3'};
-if(!firebase.apps.length)firebase.initializeApp(firebaseConfig);
-const db=firebase.firestore();const auth=firebase.auth();
+const db=ODTDocuments.create();
 const CLASSES=[['Guerrero','Protección','Tanque'],['Guerrero','Armas','DPS'],['Guerrero','Furia','DPS'],['Paladín','Sagrado','Sanador'],['Paladín','Protección','Tanque'],['Paladín','Reprensión','DPS'],['Cazador','Bestias','DPS'],['Cazador','Puntería','DPS'],['Cazador','Supervivencia','DPS'],['Pícaro','Asesinato','DPS'],['Pícaro','Forajido','DPS'],['Pícaro','Sutileza','DPS'],['Sacerdote','Disciplina','Sanador'],['Sacerdote','Sagrado','Sanador'],['Sacerdote','Sombra','DPS'],['Caballero de la Muerte','Sangre','Tanque'],['Caballero de la Muerte','Escarcha','DPS'],['Caballero de la Muerte','Profano','DPS'],['Chamán','Elemental','DPS'],['Chamán','Mejora','DPS'],['Chamán','Restauración','Sanador'],['Mago','Arcano','DPS'],['Mago','Fuego','DPS'],['Mago','Escarcha','DPS'],['Brujo','Aflicción','DPS'],['Brujo','Demonología','DPS'],['Brujo','Destrucción','DPS'],['Monje','Maestro Cervecero','Tanque'],['Monje','Tejedor de Niebla','Sanador'],['Monje','Viajero del Viento','DPS'],['Druida','Equilibrio','DPS'],['Druida','Feral','DPS'],['Druida','Guardián','Tanque'],['Druida','Restauración','Sanador'],['Cazador de Demonios','Venganza','Tanque'],['Cazador de Demonios','Devastación','DPS'],['Cazador de Demonios','Aldrachi','DPS'],['Evocador','Devastación','DPS'],['Evocador','Preservación','Sanador'],['Evocador','Aumento','DPS']];
 const GEAR_SLOTS=['Casco','Cuello','Hombros','Capa','Pecho','Brazaletes','Arma 1','Arma 2','Manos','Cintura','Piernas','Botas','Anillo 1','Anillo 2','Abalorio 1','Abalorio 2'];
-let currentUser=null,gearRows=[];
+let gearRows=[];
 const CONSUMABLE_TYPES=['Frasco','Poción','Comida','Aceite','Runa'];
 let consumableRows=[];
 let allowedPatches=[];
@@ -149,7 +147,7 @@ function setGearModType(i,j,type){const mod=normalizeGearMods(gearRows[i]||{})[j
 function setConsumableFromUrl(i,value){const row=consumableRows[i];row.url=value;const id=extractWowheadId(value);row.wowheadId=id;row.wowheadUrl=id?normalizeWowheadUrl(value,'item'):'';if(id&&!row.name)row.name='Consumible Wowhead #'+id;renderConsumables();renderPreview();refreshWowhead()}
 async function loadAllowedPatches(){
   const found=new Map();
-  // Fuente oficial para las guías comunitarias: parches administrados manualmente en Firestore.
+  // Fuente oficial para las guías comunitarias: parches administrados manualmente en el archivo local.
   try{
     const snap=await db.collection('guidePatches').where('active','==',true).get();
     snap.docs.forEach(doc=>{
@@ -158,7 +156,7 @@ async function loadAllowedPatches(){
       if(name) found.set(doc.id,{name,order:Number.isFinite(Number(d.order))?Number(d.order):999999});
     });
   }catch(e){
-    console.warn('No se pudieron cargar los parches administrados desde Firestore.',e);
+    console.warn('No se pudieron cargar los parches administrados desde el archivo local.',e);
   }
   allowedPatches=[...found.values()].sort((a,b)=>(a.order-b.order)||a.name.localeCompare(b.name,undefined,{numeric:true})).map(x=>x.name);
   const select=$('guidePatch');
@@ -236,24 +234,11 @@ function renderPreview(){
   $('preview').innerHTML=`<div class="preview-status">PENDIENTE DE REVISIÓN</div><div class="preview-card"><h3>${esc(d.title||'Nueva guía')}</h3><div class="preview-meta">${esc(d.class||'Clase')} · ${esc(d.specialization||'Especialización')} · ${esc(d.role||'Rol')}${d.patch?`<span class="preview-patch">PARCHE ${esc(d.patch)}</span>`:''}</div><div class="preview-meta">Créditos: ${esc(d.authorName||'Invitado')}</div><p class="preview-desc">${esc(d.description||'La descripción de la guía aparecerá aquí.')}</p><div class="section-kicker">Estadísticas</div><p class="preview-desc">${esc(priority||'Sin prioridad definida.')}</p><div class="section-kicker">Equipo</div><div class="preview-gear">${gear||'<div class="preview-gear-item">Todavía no hay piezas.</div>'}</div>${consumables?`<div class="section-kicker" style="margin-top:10px">Consumibles</div><div class="preview-consumables">${consumables}</div>`:''}${manualExtraPreview?`<div class="section-kicker" style="margin-top:10px">Extras</div><div class="preview-extra-icons">${manualExtraPreview}</div>`:''}${d.content.talentImage||d.content.talents?`<div class="section-kicker" style="margin-top:10px">Talentos</div>${d.content.talentImage?`<div class="preview-talent-image"><img src="${esc(d.content.talentImage)}" alt="Talentos"></div>`:''}${d.content.talents?`<p class="preview-desc">${esc(d.content.talents)}</p>`:''}`:''}${d.content.rotation?`<div class="section-kicker" style="margin-top:10px">Rotación y habilidades</div><p class="preview-desc">${esc(d.content.rotation)}</p>`:''}${d.content.tips?`<div class="section-kicker" style="margin-top:10px">Consejos</div><p class="preview-desc">${esc(d.content.tips)}</p>`:''}</div>`;refreshWowhead()
 }
 function bindForm(){['guideTitle','guideAuthorName','guideDescription','guideTalents','guideRotation','guideTips','guideClass','guideSpec','guidePatch','statPriority1','statPriority2','statPriority3','statPriority4'].forEach(id=>{const el=$(id);if(el){el.addEventListener('input',renderPreview);el.addEventListener('change',renderPreview)}});$('guideClass').addEventListener('change',renderPreview)}
-async function signIn(){try{await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())}catch(e){toast('No se pudo iniciar sesión: '+(e.code||'error'))}}
-async function ensureAuth(){if(!currentUser)await signIn();return !!currentUser}
-async function ensureSubmissionAuth(){
-  if(currentUser)return true;
-  try{
-    const credential=await auth.signInAnonymously();
-    currentUser=credential.user||auth.currentUser;
-    return !!currentUser;
-  }catch(error){
-    console.error('[Guías comunidad] No se pudo crear la sesión anónima.',error);
-    if(error.code==='auth/operation-not-allowed')toast('Falta habilitar el acceso anónimo en Firebase Authentication.');
-    else toast('No se pudo habilitar el envío sin cuenta: '+(error.code||'error'));
-    return false;
-  }
+function guestId(){
+  try {let id=localStorage.getItem('odt-visitor-id');if(!id){id=crypto.randomUUID();localStorage.setItem('odt-visitor-id',id);}return id;}
+  catch{return crypto.randomUUID();}
 }
-auth.onAuthStateChanged(u=>{currentUser=u;const box=$('authBox');if(box)box.innerHTML=u?`<span>${esc(u.isAnonymous?'INVITADO':(u.displayName||u.email||'Usuario'))}</span><button class="nav-btn" onclick="signOutUser()">Salir</button>`:'<button class="nav-btn" onclick="signIn()">INICIAR SESIÓN (OPCIONAL)</button>';if(document.getElementById('gearList'))renderPreview()});
-window.signIn=signIn;window.signOutUser=()=>auth.signOut();
-async function saveGuide(submit){if(!(await ensureSubmissionAuth()))return;await resolveAllCommunityWowheadData();const data=getForm();if(!data.title||!data.class||!data.specialization)return toast('Completá nombre, clase y especialización.');if(!data.patch||!allowedPatches.includes(data.patch))return toast('Seleccioná un parche válido creado desde Admin.');const now=firebase.firestore.FieldValue.serverTimestamp();const defaultAuthorName=currentUser.isAnonymous?'Invitado':(currentUser.displayName||currentUser.email||'Usuario');const payload={...data,authorId:currentUser.uid,authorName:(data.authorName||defaultAuthorName).slice(0,60),status:submit?'pending':'draft',featured:false,votes:0,ratingTotal:0,ratingCount:0,createdAt:now,updatedAt:now};try{await db.collection('communityGuides').add(payload);toast(submit?'Guía enviada para revisión.':'Borrador guardado.');setTimeout(()=>location.href='community-guides.html',900)}catch(e){console.error(e);toast('No se pudo guardar. Revisá las reglas de Firestore.')}}
+async function saveGuide(submit){await resolveAllCommunityWowheadData();const data=getForm();if(!data.title||!data.class||!data.specialization)return toast('Completá nombre, clase y especialización.');if(!data.patch||!allowedPatches.includes(data.patch))return toast('Seleccioná un parche válido creado desde Admin.');const now=new Date().toISOString();const defaultAuthorName='Invitado';const payload={...data,authorId:guestId(),authorName:(data.authorName||defaultAuthorName).slice(0,60),status:submit?'pending':'draft',featured:false,votes:0,ratingTotal:0,ratingCount:0,createdAt:now,updatedAt:now};try{await db.collection('communityGuides').add(payload);toast(submit?'Guía enviada para revisión.':'Borrador guardado.');setTimeout(()=>location.href='community-guides.html',900)}catch(e){console.error(e);toast(e.message||'No se pudo guardar la guía.')}}
 window.saveDraft=()=>saveGuide(false);window.submitGuide=()=>saveGuide(true);
 async function loadGuides(){const box=$('guideGrid');if(!box)return;box.innerHTML='<div class="empty">Cargando guías...</div>';try{const snap=await db.collection('communityGuides').where('status','==','published').limit(60).get();const docs=snap.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(Number(b.featured)-Number(a.featured))||(Number(b.votes||0)-Number(a.votes||0)));renderGuides(docs);const requestedGuide=new URLSearchParams(location.search).get('guia');if(requestedGuide&&docs.some(g=>g.id===requestedGuide))setTimeout(()=>window.openGuide(requestedGuide),0)}catch(e){console.error(e);box.innerHTML='<div class="empty">No se pudieron cargar las guías.</div>'}}
 let allGuides=[];
@@ -284,7 +269,7 @@ window.openGuide=async id=>{
   $('modal').classList.add('open');
   $('modalContent').innerHTML=`<button class="ghost-btn close-modal" onclick="closeGuide()">✕ CERRAR</button><div class="eyebrow">GUÍA DE LA COMUNIDAD</div><h2 class="section-title" style="font-size:27px;margin-top:8px">${esc(g.title)}</h2><div class="preview-meta">${esc(g.class)} · ${esc(g.specialization)} · Por ${esc(g.authorName)}${g.patch?` · PARCHE ${esc(g.patch)}`:''}</div><p class="preview-desc">${esc(g.description||'')}</p><div class="guide-tags"><span class="tag gold">${esc(g.class)}</span><span class="tag">${esc(g.specialization)}</span></div>${priority?`<div class="section"><h3 class="section-title">Estadísticas</h3><p class="preview-desc">${esc(priority)}</p></div>`:''}<div class="section"><h3 class="section-title">Equipo</h3><div class="detail-gear">${(g.gear||[]).map(x=>`<div class="preview-gear-item"><div class="preview-item-top">${x.wowheadId?makeWhLink(x.wowheadId,'item',x.name||'Objeto'):esc(x.name||x.slot)}</div><div class="preview-item-mods">${gearModsMarkup(x)}</div><span>${esc(x.slot||'')}</span></div>`).join('')||'<div class="preview-gear-item">Sin equipo.</div>'}</div></div>${consumables?`<div class="section"><h3 class="section-title">Consumibles</h3><div class="preview-consumables">${consumables}</div></div>`:''}${extraIcons?`<div class="section"><h3 class="section-title">Otros extras</h3><div class="preview-extra-icons">${extraIcons}</div></div>`:''}<div class="section"><h3 class="section-title">Talentos</h3>${content.talentImage?`<img class="guide-talent-image" src="${esc(content.talentImage)}" alt="Talentos">`:''}<p class="preview-desc">${esc(content.talents||'No especificado.')}</p></div><div class="section"><h3 class="section-title">Rotación y prioridades</h3><p class="preview-desc">${esc(content.rotation||'No especificado.')}</p></div><div class="section"><h3 class="section-title">Consejos</h3><p class="preview-desc">${esc(content.tips||'No especificado.')}</p></div><div class="editor-actions"><button class="gold-btn" onclick="voteGuide('${g.id}')">★ VOTAR 5/5</button></div>`;refreshWowhead()
 };window.closeGuide=()=>{$('modal').classList.remove('open')};
-async function voteGuide(id){if(!(await ensureAuth()))return;const ref=db.collection('communityGuides').doc(id),vote=ref.collection('votes').doc(currentUser.uid);try{await db.runTransaction(async t=>{const [g,v]=await Promise.all([t.get(ref),t.get(vote)]);if(v.exists)throw new Error('already-voted');t.set(vote,{userId:currentUser.uid,rating:5,createdAt:firebase.firestore.FieldValue.serverTimestamp()});t.update(ref,{votes:firebase.firestore.FieldValue.increment(1),ratingTotal:firebase.firestore.FieldValue.increment(5),ratingCount:firebase.firestore.FieldValue.increment(1)})});toast('Voto registrado.');loadGuides()}catch(e){toast(e.message==='already-voted'?'Ya votaste esta guía.':'No se pudo registrar el voto.')}}
+async function voteGuide(id){try{await ODTDocuments.vote(id,guestId());toast('Voto registrado.');await loadGuides()}catch(e){toast(e.message||'No se pudo registrar el voto.')}}
 window.voteGuide=voteGuide;
 function initCommunityPage(){if(document.getElementById('gearList')){initSelects();bindForm();gearRows=GEAR_SLOTS.map(slot=>({slot,url:'',wowheadId:'',wowheadUrl:'',gemUrl:'',gemId:'',gemIcon:'',gemName:'',gem2Url:'',gem2Id:'',gem2Icon:'',gem2Name:'',enchantUrl:'',enchantId:'',enchantIcon:'',enchantName:'',stats:'',icon:'',name:''}));consumableRows=CONSUMABLE_TYPES.map(type=>({type,url:'',name:'',icon:'',wowheadId:'',wowheadUrl:''}));renderGearRows();renderConsumables();renderManualAndDetectedExtras();renderPreview();loadAllowedPatches()}else{fillFilters();loadGuides()}}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initCommunityPage);else initCommunityPage()
