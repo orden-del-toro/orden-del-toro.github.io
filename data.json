@@ -564,6 +564,156 @@
         "expansion": "",
         "season": "",
         "heroImage": "https://static.wikia.nocookie.net/es_wowpedia/images/d/de/Dimensius.png/revision/latest?cb=20250920205025"
+      },
+      {
+        "name": "La Aguja del Vacio",
+        "nm": 0,
+        "hc": 0,
+        "mm": 0,
+        "icon": "https://wow.zamimg.com/uploads/screenshots/normal/1276306-tormenta-del-vacio.jpg",
+        "heroImage": "",
+        "expansion": "Midnight",
+        "season": "Temporada 1",
+        "description": "",
+        "bosses": [
+          {
+            "name": "Encuentro 01",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          },
+          {
+            "name": "Encuentro 02",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          },
+          {
+            "name": "Encuentro 03",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          },
+          {
+            "name": "Encuentro 04",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          },
+          {
+            "name": "Encuentro 05",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          },
+          {
+            "name": "Encuentro 06",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          }
+        ],
+        "resources": []
+      },
+      {
+        "name": "La Onirifalla",
+        "nm": 0,
+        "hc": 0,
+        "mm": 0,
+        "icon": "https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/RW7VFH2WUIJM1771476923759.png",
+        "heroImage": "",
+        "expansion": "Midnight",
+        "season": "Temporada 1",
+        "description": "",
+        "bosses": [
+          {
+            "name": "Encuentro 01",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          }
+        ],
+        "resources": []
+      },
+      {
+        "name": "Marcha sobre Quel´danas",
+        "nm": 0,
+        "hc": 0,
+        "mm": 0,
+        "icon": "https://wow.zamimg.com/uploads/screenshots/normal/1279555-marcha-a-queldanas.jpg",
+        "heroImage": "",
+        "expansion": "Midnight",
+        "season": "",
+        "description": "",
+        "bosses": [
+          {
+            "name": "Encuentro 01",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          },
+          {
+            "name": "Encuentro 02",
+            "image": "",
+            "subtitle": "",
+            "summary": "",
+            "video": "",
+            "roles": {
+              "tank": "",
+              "healer": "",
+              "dps": ""
+            }
+          }
+        ],
+        "resources": []
       }
     ],
     "homeRaidIndex": "0"
