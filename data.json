@@ -561,7 +561,7 @@
         ],
         "resources": [],
         "description": "",
-        "expansion": "",
+        "expansion": "The War Within",
         "season": "",
         "heroImage": "https://static.wikia.nocookie.net/es_wowpedia/images/d/de/Dimensius.png/revision/latest?cb=20250920205025"
       },
@@ -577,75 +577,75 @@
         "description": "",
         "bosses": [
           {
-            "name": "Encuentro 01",
+            "name": "Imperador Averzian",
             "image": "",
-            "subtitle": "",
-            "summary": "",
-            "video": "",
+            "subtitle": "Cerrá dos portales por ronda, eliminá los refuerzos y esquivá la marcha del ejército. Si Averzian completa tres casillas en línea, cae toda la banda.",
+            "summary": "FASE PRINCIPAL. Averzian marca tres casillas con Avance de las Sombras. Cada\ntanque coloca Colapso umbrío sobre una de las casillas asignadas por el líder.\nToda la banda entra en ambos círculos para repartir el daño. La tercera casilla\nqueda ocupada y genera refuerzos. Si el jefe completa tres casillas en línea,\nactiva Marcha de los infinitos y acaba con la banda.\n\nINTERMEDIO. Durante Caída del Vacío, el jefe empuja a la banda y bombardea la\nsala. Esquivá los impactos y salí de los carriles por donde marchan las tropas.\nDespués se repite el ciclo.\n\nHEROICO. Dejá activa la esquina en la primera ronda y seguí las marcas del líder\npara formar un cuadrado de 2×2 con las casillas ocupadas. Así retrasás el tres\nen raya.",
+            "video": "https://www.youtube.com/watch?v=Qo3NNB6KIY8",
             "roles": {
-              "tank": "",
-              "healer": "",
-              "dps": ""
+              "tank": "• FASE PRINCIPAL. Llevá Colapso umbrío a la casilla asignada y dejá que la banda\n  entre para compartir el daño. Después del primer Colapso, el otro tanque\n  provoca al jefe y lleva el segundo círculo a la otra casilla marcada.\n\n• POSICIONAMIENTO. Vigilá Mancillar heridas, que reduce la salud máxima por\n  acumulación. Mantené a Averzian lejos de las casillas ya conquistadas.\n\n• HEROICO. El engendro del Vacío persigue al tanque con más acumulaciones durante\n  10 segundos. Ese tanque se aleja con el engendro y el otro se queda con el jefe\n  para evitar que se potencien por cercanía.",
+              "healer": "• FASE PRINCIPAL. Entrá en ambos círculos de Colapso umbrío y recuperá la salud\n  de la banda después de cada impacto. Vigilá al tanque con más acumulaciones\n  de Mancillar heridas, sobre todo cuando aparezcan los refuerzos.\n\n• INTERMEDIO. Mantené al grupo con vida mientras se mueve para esquivar los\n  impactos y las tropas. Prepará sanación de banda para Agitación oscura al\n  inicio del combate y al terminar cada intermedio.",
+              "dps": "• FASE PRINCIPAL. Entrá en ambos círculos de Colapso umbrío. Cuando aparezcan\n  los refuerzos, cambiá de objetivo e interrumpí Baluarte inclinado para evitar\n  que los enemigos reciban un escudo. Esquivá las líneas de Cólera del Olvido.\n\n• INTERMEDIO. Esquivá las zonas de impacto y movete a un carril libre cuando\n  aparezcan los portales del ejército.\n\n• HEROICO. Cambiá rápido al engendro del Vacío cuando el tanque lo haya separado\n  del jefe. La guía propone usar Heroísmo o Ansia de sangre al inicio."
             }
           },
           {
-            "name": "Encuentro 02",
+            "name": "Vorasius",
             "image": "",
-            "subtitle": "",
-            "summary": "",
-            "video": "",
+            "subtitle": "Cubran los embates, maten a los ampollinos junto a los muros y corran al lado opuesto de la mano que brilla para esquivar el Aliento del Vacío.",
+            "summary": "FASE PRINCIPAL. Vorasius atrae a la banda y después la empuja con Rugido\nprimordial. Sus dos Embates zarpasombra grandes levantan muros de cristal.\nLos tanques cubren los impactos y el resto esquiva los anillos de Réplica.\n\nAMPOLLINOS Y ALIENTO. Esquivá los impactos de Expulsión de parásitos. Si un\nampollino te persigue, llevalo al muro asignado para que explote ahí al morir.\nRompé ambos muros y, cuando brille una mano del jefe, corré al extremo opuesto.\nDespués del Aliento del Vacío, el ciclo vuelve a empezar.\n\nNORMAL: una explosión por muro.\nHEROICO: dos explosiones por muro y dos embates pequeños extra mientras\nestán activos los ampollinos.",
+            "video": "https://www.youtube.com/watch?v=o14IvQz6Rfw",
             "roles": {
-              "tank": "",
-              "healer": "",
-              "dps": ""
+              "tank": "• EMBATES GRANDES. El mismo tanque cubre los dos impactos grandes del ciclo.\n  Después del primero, el otro tanque provoca a Vorasius. El tanque asignado\n  al segundo impacto usa un defensivo fuerte porque ya tiene Machacado.\n\n• EMBATES PEQUEÑOS. El tanque que se queda con el jefe cubre los impactos\n  pequeños. En Heroico, también cubre los dos que salen con los ampollinos.\n\n• SIGUIENTE CICLO. Intercambien funciones. Si un ampollino te persigue,\n  llevalo al muro asignado y salí del círculo antes de que explote.",
+              "healer": "• TANQUES. Prepará sanación o un defensivo externo para el segundo embate\n  grande. El tanque que lo recibe ya tiene Machacado.\n\n• BANDA. Repartan los defensivos y las sanaciones de banda entre la salida\n  de los ampollinos y el Aliento del Vacío. El aliento sigue causando daño\n  grupal aunque todos estén en el lado seguro.\n\n• CICLOS FINALES. Cada Rugido primordial aumenta el daño sostenido de la\n  banda. Si un ampollino te persigue, llevalo al muro asignado.",
+              "dps": "• EMBATES. Esquivá los anillos de Réplica y dejá libre el círculo de impacto\n  para el tanque asignado.\n\n• AMPOLLINOS. Si te persiguen, llevalos al muro que te toque. Cambiá de\n  objetivo cuando estén pegados al cristal y salí del círculo al matarlos.\n  En Heroico, confirmá dos detonaciones en cada muro.\n\n• ALIENTO. Si brilla la mano que ves a tu derecha, corré al extremo izquierdo.\n  Si brilla la de tu izquierda, corré al derecho. Volvé al centro cuando\n  termine el barrido. Usen Heroísmo o Ansia de sangre al inicio."
             }
           },
           {
-            "name": "Encuentro 03",
+            "name": "Rey caído Salhadaar",
             "image": "",
-            "subtitle": "",
-            "summary": "",
-            "video": "",
+            "subtitle": "Destruí los orbes antes de que lleguen al jefe, cortá las copias y dejá los charcos en los bordes. A 100 de energía, esquivá los rayos giratorios.",
+            "summary": "FASE PRINCIPAL. Salhadaar invoca dos orbes que avanzan hacia él. Destruilos\nantes de que lo alcancen, porque si absorbe uno puede matar a toda la banda.\nInterrumpí o controlá a las copias para que desaparezcan. Si te marca Orden\ndespótica, llevá el círculo al borde para dejar ahí el charco permanente.\n\nA 100 DE ENERGÍA. Salhadaar canaliza Desenredo entrópico. Esquivá los rayos\ngiratorios y aprovechá que recibe un 25 % más de daño. Al terminar, deja un\ncharco grande bajo sus pies y el ciclo vuelve a empezar.\n\nHEROICO. Matá los orbes de a uno. Cada muerte aplica Radiación oscura a toda\nla banda durante 8 segundos. Esperá a que expire antes de rematar el segundo,\nsiempre que todavía esté a una distancia segura del jefe.",
+            "video": "https://www.youtube.com/watch?v=NFJ92xCtefY",
             "roles": {
-              "tank": "",
-              "healer": "",
-              "dps": ""
+              "tank": "• GOLPES DESESTABILIZADORES. Alternen cuando al otro tanque se le hayan\n  borrado las acumulaciones. Mové al jefe para ganar distancia si un orbe\n  está por alcanzarlo.\n\n• CREPÚSCULO DESTROZADOR. Mantené estable tu posición cuando se marquen\n  las líneas de pinchos para que la banda pueda esquivarlas. En Heroico,\n  usá un defensivo para el impacto.\n\n• A 100 DE ENERGÍA. Llevá al jefe cerca de un borde antes de que canalice\n  Desenredo entrópico. El charco que deja al terminar quedará fuera del centro.",
+              "healer": "• ORDEN DESPÓTICA. Vigilá a los jugadores marcados mientras se alejan\n  al borde. Después de que dejen el charco, curá su absorción de sanación.\n\n• HEROICO. Cubrí el daño de Radiación oscura tras cada orbe. Si los dos\n  tienen que morir casi juntos, usá un defensivo o sanación de banda.\n\n• A 100 DE ENERGÍA. Prepará sanación de banda para Desenredo entrópico.\n  Seguí moviéndote con el grupo para esquivar los rayos.",
+              "dps": "• ORBES. Cambiá de objetivo apenas aparezcan. En Heroico, priorizá el\n  orbe marcado y coordiná el remate del segundo para evitar acumular\n  Radiación oscura.\n\n• COPIAS Y MARCAS. Cortá el lanzamiento de las copias con una interrupción,\n  un aturdimiento o un empujón para hacerlas desaparecer. Dejá los charcos\n  en el borde. En Heroico, si te marca Crepúsculo destrozador, alejate y\n  orientá las líneas de pinchos fuera del grupo.\n\n• A 100 DE ENERGÍA. Esquivá los rayos giratorios y aprovechá el 25 % de\n  daño extra con tus habilidades ofensivas."
             }
           },
           {
-            "name": "Encuentro 04",
+            "name": "Vaelgor y Ezzorak",
             "image": "",
-            "subtitle": "",
-            "summary": "",
-            "video": "",
+            "subtitle": "Bajá a los dos dragones parejo, llevá el Aliento de pavor fuera del grupo y cubrí el orbe de Penumbra. A 100 de energía, refugiate en el centro.",
+            "summary": "FASE 1. Vaelgor empieza en tierra y Ezzorak en el aire. La banda puede\natacar a los dos. Mantené sus vidas parejas. Si te marca Aliento de pavor,\nsalí del grupo. Los jugadores asignados se ponen en la trayectoria del\norbe de Penumbra para reducir el daño y el tamaño de la zona que deja.\n\nINTERMEDIOS. A 100 de energía, entrá en la Protección radiante del centro\npara sobrevivir a Llamas de medianoche y eliminá al refuerzo que aparece.\nEn Heroico, si tenés una detonación, apartate hacia el borde de la barrera.\n\nFASE 2. Ezzorak baja y va a lanzar Penumbra más seguido. Vaelgor vuela\ny dirige Aliento de pavor a su tanque. Después del segundo intermedio,\nambos bajan y combinan sus habilidades. Rematalos casi al mismo tiempo.",
+            "video": "https://www.youtube.com/watch?v=dAHb5wLQNEE",
             "roles": {
-              "tank": "",
-              "healer": "",
-              "dps": ""
+              "tank": "• POSICIÓN. Mantengan separados a los dragones durante las fases de vuelo.\n  Orientá Haz de la nada y Penumbra hacia un lateral, lejos del grupo.\n\n• CAMBIO. Intercambien dragones después de cada intermedio para reiniciar\n  la presión de Alas de Vaelgor y Colmillo de Ezzorak. Cuando ambos estén\n  en tierra, coordinen el cambio según las acumulaciones.\n\n• VAELGOR EN VUELO. Su tanque recibe Aliento de pavor. Mantené el frontal\n  fuera de la banda y coordiná con los sanadores para que te disipen.",
+              "healer": "• ALIENTO DE PAVOR. Disipá el miedo del jugador marcado después del impacto.\n  Cuando Vaelgor esté en el aire, la prioridad es su tanque.\n\n• DAÑO DE BANDA. Prepará sanaciones para Penumbra y para cuando el grupo\n  rompa las ataduras de Zona de la nada. En la fase final, coordiná los\n  defensivos de banda cuando coincidan varias habilidades.\n\n• INTERMEDIOS. Curá desde la Protección radiante y vigilá a los jugadores\n  marcados con detonación mientras se apartan hacia el borde de la barrera.",
+              "dps": "• DAÑO PAREJO. Cambiá al dragón con más vida si se empieza a abrir la\n  diferencia. Con Aullido del Vacío, quedate cerca del grupo con espacio\n  entre los círculos y después interrumpí y matá a los enemigos que salen.\n\n• POSICIONAMIENTO. Si te marca Aliento de pavor, apuntalo fuera del grupo.\n  Salí de Zona de la nada hasta romper la atadura y evitá la cola de los\n  dragones.\n\n• PENUMBRA. Si sos del grupo asignado, cruzá la trayectoria del orbe hasta\n  que pierda el anillo morado. En Heroico, alternen dos grupos porque\n  recibir el orbe deja una vulnerabilidad de un minuto."
             }
           },
           {
-            "name": "Encuentro 05",
+            "name": "Vanguardia Cegada por la Luz",
             "image": "",
-            "subtitle": "",
-            "summary": "",
-            "video": "",
+            "subtitle": "Bajá a los tres paladines parejo, rompé el escudo de Senn y compartí las Sentencias de ejecución en grupos separados.",
+            "summary": "FASE PRINCIPAL. Bellamy, Sangreluz y Senn tienen vidas separadas. Bajalos\nparejo y rematalos casi juntos, porque los que sobreviven ganan daño.\nCuando Senn cargue, rompé su escudo e interrumpí Luz cegadora.\n\nA 100 DE ENERGÍA. Las auras salen siempre en este orden. Bellamy activa\nDevoción: sacá a los otros paladines de su aura y esquivá los escudos.\nSangreluz activa Cólera: compartí las Sentencias de ejecución en círculos\nseparados y esquivá los martillos. Senn activa Paz: roten a los tres\njugadores más cercanos para repartir las absorciones de sanación.\n\nHEROICO. Cada aura deja una Consagración permanente. Empezá cerca de\nun borde y avanzá hacia suelo limpio después de cada aura.",
+            "video": "https://www.youtube.com/watch?v=KblxYxFSiUg",
             "roles": {
-              "tank": "",
-              "healer": "",
-              "dps": ""
+              "tank": "• ASIGNACIÓN. Un tanque toma a Bellamy y el otro a Sangreluz. Cualquiera\n  de los dos puede llevar también a Senn.\n\n• SENTENCIA. Bellamy lanza primero. Apenas aplique Sentencia, el otro\n  tanque la provoca para recibir Escudo del honrado. Cuando Sangreluz\n  aplique su Sentencia, el primer tanque lo provoca para recibir\n  Veredicto final. En Heroico, el cambio tiene que ser inmediato.\n\n• AURAS. Separá al paladín que llega a 100 de energía de los otros dos.\n  En Heroico, dejá las Consagraciones cerca del borde para conservar\n  espacio de pelea.",
+              "healer": "• TANQUES. Vigilá los cambios tras cada Sentencia. Si el cambio se\n  retrasa, cubrí al tanque marcado con un defensivo externo.\n\n• BANDA. Prepará sanaciones para Estrago sagrado y para las Sentencias\n  de ejecución, sobre todo en Heroico. Esquivá los escudos de Bellamy,\n  porque te silencian si te golpean.\n\n• AURA DE PAZ. Curá las absorciones de los tres jugadores más cercanos\n  a Senn. Coordinen la rotación antes de que vuelvan a acumularse en\n  las mismas personas.",
+              "dps": "• PRIORIDAD. Cambiá a Senn cuando active su escudo. Rompelo rápido y\n  cortá Luz cegadora en cuanto se pueda interrumpir.\n\n• SENTENCIA DE EJECUCIÓN. Si te marca, llevá tu círculo a la posición\n  asignada. Si te toca compartir, entrá en un solo círculo. Después\n  del impacto, esquivá los martillos que salen de cada marca.\n\n• DAÑO PAREJO. Cambiá al paladín con más vida si se abre la diferencia.\n  Cuando uno esté por caer, bajá a los otros antes de rematarlo."
             }
           },
           {
-            "name": "Encuentro 06",
+            "name": "Corona del Cosmos",
             "image": "",
-            "subtitle": "",
-            "summary": "",
-            "video": "",
+            "subtitle": "Usá las flechas de Alleria para romper los escudos y limpiar acumulaciones. En la fase final, rompé los vínculos de a uno y saltá con las plumas.",
+            "summary": "FASE 1. Alineá Flecha golpeplata con el centinela prioritario para quitarle\nla inmortalidad y poder rematarlo. Dejá los charcos en los bordes. En\nHeroico, la guía propone este orden: Demiar, Morium y Borelus.\n\nINTERMEDIOS. ResistÍ la atracción hacia el centro y esquivá los impactos.\nDejá que una Tromba golpeplata te alcance para limpiar acumulaciones.\nEn Heroico, esperá que expire la vulnerabilidad de 8 segundos antes de\nrecibir otra flecha. En el segundo intermedio, esquivá también los orbes.\n\nFASE 2. Separá a Alleria de su simulación. Rompé Barrera cósmica apenas\naparezca e interrumpí a los engendros. Cuando queden a 1 de vida, alineá\nlas flechas de rebote para rematarlos.\n\nFASE 3. Rompé los vínculos de Aspecto del fin de a uno. Cuando Alleria\nlance Cosmos devorador, agarrá una pluma y saltá a la plataforma siguiente.\nHay que derrotarla antes de quedarse sin plataformas.",
+            "video": "https://www.youtube.com/watch?v=ByOrNgGs-q8",
             "roles": {
-              "tank": "",
-              "healer": "",
-              "dps": ""
+              "tank": "• FASE 1. Un tanque toma a Morium y el otro a Demiar. Usá mitigación para\n  Mano oscura y cuidá el empujón. Llevá las gotas del Vacío junto a los\n  centinelas para que exploten ahí y aumenten el daño que reciben.\n\n• FASE 2. Mantené separadas a Alleria y su simulación. Alternen por las\n  acumulaciones de Tajo de falla. En Heroico, la guía propone intercambiar\n  objetivos al salir Barrera cósmica y volver a cambiarlos cuando se rompa.\n\n• FASE 3. Cuando el tanque activo reciba Aspecto del fin, el otro toma a\n  Alleria. Rompé tu vínculo cuando lo indique el líder de banda.",
+              "healer": "• AUREOLA NULA. Curá la absorción. Disipá solo si el objetivo corre peligro,\n  porque la absorción restante salta a otro jugador.\n\n• FASES 1 Y 2. Dejá de castear justo antes de Temblor interruptor de Demiar.\n  Prepará sanación de banda para el final de cada intermedio y para el\n  daño de Barrera cósmica mientras siga activa.\n\n• FASE 3. Recuperá al grupo entre cada rotura de Aspecto del fin y avisá\n  cuándo puede salir el siguiente marcado. Guardá sanación para los saltos\n  entre plataformas.",
+              "dps": "• FASE 1. Priorizá un centinela a la vez y alineá Flecha golpeplata para\n  quitarle la inmortalidad. Matá las gotas junto a los centinelas y llevá\n  Expulsión del Vacío al borde.\n\n• FASE 2. Cambiá a la simulación apenas salga Barrera cósmica. Interrumpí\n  Tromba de Vacío y alineá las flechas de rebote con los engendros a 1 de\n  vida para eliminarlos.\n\n• FASE 3. Usen Heroísmo o Ansia de sangre al entrar. Si te marca Aspecto\n  del fin, rompelo en tu turno. Orientá las líneas de los obeliscos lejos\n  del grupo y agarrá una pluma para cruzar a la plataforma siguiente."
             }
           }
         ],
