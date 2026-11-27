@@ -1,7 +1,6 @@
 (function (root) {
   'use strict';
   const staticHosting = () => document.querySelector('meta[name="odt-hosting"]')?.content === 'github-pages';
-  const unavailable = 'El sitio publicado todavía no tiene un receptor de envíos configurado. No se envió ni se guardó la información en Admin.';
   async function request(url, method = 'GET', data) {
     const response = await fetch(url, { method, cache: 'no-store',
       headers: { 'Content-Type': 'application/json', 'X-ODT-Local-Admin': 'documents' },
@@ -13,10 +12,6 @@
     return result;
   }
   function snapshot(id, value) { return { id, exists: value !== undefined, data: () => value }; }
-  async function sendRequest(data) {
-    if (staticHosting()) throw new Error(unavailable);
-    return request('/api/solicitud', 'POST', data);
-  }
   function create({ admin = false } = {}) {
     async function records(name) {
       if (name === 'solicitudes') {
@@ -26,12 +21,12 @@
       }
       if (admin) return request('/api/documents/' + name);
       const data = staticHosting()
-        ? await request(new URL('community-data.json', document.baseURI).href)
-        : await request('/community-data.json');
+        ? await request(new URL('guide-patches.json', document.baseURI).href)
+        : await request('/guide-patches.json');
       return data[name] || {};
     }
     function collection(name, filters = [], count = Infinity) {
-      if (!['guidePatches', 'communityGuides', 'solicitudes'].includes(name)) throw new Error('Colección desconocida.');
+      if (!['guidePatches', 'solicitudes'].includes(name)) throw new Error('Colección desconocida.');
       return {
         where(field, operator, value) {
           if (operator !== '==') throw new Error('Filtro no admitido.');
@@ -45,9 +40,7 @@
           return { docs, empty: !docs.length };
         },
         async add(value) {
-          if (name === 'solicitudes') return sendRequest(value);
-          if (staticHosting()) throw new Error(unavailable);
-          if (!admin && name === 'communityGuides') return request('/api/community-guides', 'POST', value);
+          if (!admin || staticHosting() || name === 'solicitudes') throw new Error('No se permite crear documentos desde esta vista.');
           const id = crypto.randomUUID();
           await this.doc(id).set(value);
           return { id };
@@ -77,9 +70,5 @@
     }
     return { collection };
   }
-  async function vote(id, visitorId) {
-    if (staticHosting()) throw new Error(unavailable);
-    return request('/api/community-guides/' + encodeURIComponent(id) + '/vote', 'POST', { visitorId });
-  }
-  root.ODTDocuments = { create, sendRequest, vote };
+  root.ODTDocuments = { create };
 })(globalThis);

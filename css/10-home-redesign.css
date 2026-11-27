@@ -268,23 +268,6 @@ footer { background: rgba(7, 7, 7, .93); border-top: 1px solid rgba(201, 162, 79
 .odt-guides-class-list .guides-class-grid { grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); grid-auto-rows: 1fr; align-items: stretch; }
 .odt-guides-class-list .guides-class-card { width: 100%; height: 100%; min-height: 140px; }
 .odt-guides-class-list .odt-guides-actions { margin-top: 24px; }
-.odt-community-guides-section { margin-top: 30px; padding: 24px; background: linear-gradient(180deg, rgba(10, 10, 10, .62), rgba(10, 10, 10, .38)); border: 1px solid var(--odt-gold-line); }
-.odt-community-guides-heading { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid rgba(201, 162, 79, .2); }
-.odt-community-guides-heading .odt-section-kicker { margin-bottom: 5px; }
-.odt-community-guides-heading h2 { margin: 0; color: var(--gold-light); font: 700 clamp(18px, 2.4vw, 25px)/1.2 'Cinzel', serif; }
-.odt-community-guides-heading > a, .odt-community-guide-card-bottom a { display: inline-flex; align-items: center; gap: 6px; color: var(--gold-light); font: 600 10px 'Oswald', sans-serif; letter-spacing: .12em; white-space: nowrap; }
-.odt-community-guides-heading > a:hover, .odt-community-guide-card-bottom a:hover { color: #fff0c2; }
-.odt-community-guides-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; }
-.odt-community-guide-card { display: flex; min-width: 0; flex-direction: column; padding: 16px; background: rgba(8, 8, 8, .56); border: 1px solid rgba(201, 162, 79, .22); }
-.odt-community-guide-card-top, .odt-community-guide-card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-.odt-community-guide-card-top { color: var(--gold); font: 600 9px 'Oswald', sans-serif; letter-spacing: .12em; text-transform: uppercase; }
-.odt-community-guide-featured { color: var(--text-muted); }
-.odt-community-guide-card h3 { margin: 13px 0 5px; color: var(--gold-light); font: 600 15px/1.35 'Cinzel', serif; }
-.odt-community-guide-meta { color: var(--text-muted); font: 500 10px 'Oswald', sans-serif; letter-spacing: .06em; text-transform: uppercase; }
-.odt-community-guide-card p { flex: 1; margin: 12px 0 16px; color: var(--text-muted); font: 12px/1.6 'Inter', sans-serif; }
-.odt-community-guide-card-bottom { padding-top: 11px; border-top: 1px solid rgba(255, 255, 255, .06); }
-.odt-community-guide-card-bottom > span { overflow: hidden; color: var(--text-dim); font: 500 9px 'Oswald', sans-serif; letter-spacing: .08em; text-overflow: ellipsis; white-space: nowrap; }
-.odt-community-guides-status { grid-column: 1 / -1; margin: 0; padding: 24px 14px; color: var(--text-muted); font: 12px/1.6 'Inter', sans-serif; text-align: center; }
 .odt-guides-create { display: inline-flex; min-height: 42px; align-items: center; justify-content: center; padding: 0 18px; color: var(--text-muted); border: 1px solid rgba(201, 162, 79, .24); font: 500 10px 'Oswald', sans-serif; letter-spacing: .12em; transition: color .2s, border-color .2s; }
 .odt-guides-create:hover { color: var(--gold-light); border-color: var(--gold-dim); }
 .odt-recruitment-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: clamp(22px, 4vw, 48px); width: min(100%, 850px); margin: 14px auto 4px; }
@@ -376,9 +359,6 @@ footer { background: rgba(7, 7, 7, .93); border-top: 1px solid rgba(201, 162, 79
   .odt-guides-heading { margin-bottom: 20px; padding: 22px 15px 19px; }
   .odt-guides-class-list { padding: 16px 12px; }
   .odt-guides-class-list .guides-class-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .odt-community-guides-section { margin-top: 20px; padding: 16px 12px; }
-  .odt-community-guides-heading { align-items: flex-start; }
-  .odt-community-guides-grid { grid-template-columns: 1fr; }
   .recruit-header h2, .recruit-modal-header h3 { font-size: clamp(20px, 6.4vw, 26px); line-height: 1.2; }
   .odt-weekly-schedule { scrollbar-width: thin; scrollbar-color: var(--gold-dim) rgba(255, 255, 255, .08); scroll-snap-type: x proximity; }
   .odt-week-day { scroll-snap-align: start; }

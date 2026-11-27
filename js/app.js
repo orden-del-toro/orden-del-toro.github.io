@@ -1383,11 +1383,6 @@ function renderRecruitment() {
   const container = document.getElementById('recruitmentContainer');
   if (!container) return;
   const r = CONFIG.recruitment;
-  const contact = document.querySelector('.odt-recruitment-contact a');
-  if (contact && window.ODTDiscordSubmission) {
-    contact.href = ODTDiscordSubmission.destination(r?.discordContactUrl).url;
-    contact.setAttribute('aria-label','Abrir el perfil de Rupp en Discord');
-  }
   const colors = { dps: '#0070DE', healers: '#FFFFFF', tanks: '#C41F3B' };
   const labels = { dps: 'DPS', healers: 'SANADORES', tanks: 'TANQUE' };
   let html = '';
@@ -1976,9 +1971,9 @@ SPECS.forEach(spec => {
 // ==========================================
 // HELPERS DE RENDERIZADO DE GUÍAS
 // ==========================================
-function renderStatsForPreview(stats, communityPriority) {
+function renderStatsForPreview(stats, configuredPriority) {
   const safe = stats || {};
-  const priority = Array.isArray(communityPriority) ? communityPriority.filter(Boolean) : [];
+  const priority = Array.isArray(configuredPriority) ? configuredPriority.filter(Boolean) : [];
   const values = priority.length
     ? priority.slice(0, 4).map((name, i) => [name, 4 - i, i + 1])
     : [
@@ -2253,30 +2248,19 @@ function renderSpecDetail(specId) {
       <a href="#detail-stats">Estadísticas</a>
       <a href="#detail-talents">Talentos</a>
       ${gearNavHtml}
-      ${data.communityDescription || data.communityRotation || data.communityTips || data.communityTalentCode ? '<a href="#detail-community-content">Explicación</a>' : ''}
       <a href="#" onclick="openEnchantOverlay(); return false;">Gemas</a>
       <a href="#" onclick="openConsumableOverlay(); return false;">Consumibles</a>
     </nav>
 
     <div id="detail-stats" class="detail-section">
       <h2 class="section-title">Estadísticas</h2>
-      ${renderStatsForPreview(data.stats, data.communityStatsPriority)}
+      ${renderStatsForPreview(data.stats, data.statsPriority)}
     </div>
 
     ${talentHtml}
 
     ${gearSectionHtml}
 
-    ${(data.communityDescription || data.communityRotation || data.communityTips || data.communityTalentCode) ? `
-      <div id="detail-community-content" class="detail-section odt-official-community-content">
-        <div class="section-title">Contenido de la Comunidad</div>
-        ${data.communityDescription ? `<div class="odt-community-text-block"><h3>Descripción</h3><p>${String(data.communityDescription).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</p></div>` : ''}
-        ${data.communityRotation ? `<div class="odt-community-text-block"><h3>Rotación y habilidades</h3><div class="odt-community-preformatted">${String(data.communityRotation).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div></div>` : ''}
-        ${data.communityTips ? `<div class="odt-community-text-block"><h3>Consejos adicionales</h3><div class="odt-community-preformatted">${String(data.communityTips).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div></div>` : ''}
-        ${data.communityTalentCode ? `<div class="odt-community-text-block"><h3>Código de talentos</h3><div class="odt-community-code">${String(data.communityTalentCode).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div></div>` : ''}
-        ${data.communityAuthor ? `<div class="odt-community-source">Aporte original de <strong>${String(data.communityAuthor).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</strong></div>` : ''}
-      </div>
-    ` : ''}
   `;
 
   // 9. Inyectar y mostrar
@@ -2301,80 +2285,6 @@ function closeOverlay(id) { /* ... (sin cambios) */ }
 
 // ==========================================
 // RECLUTAMIENTO Y PLAYERS OVERLAYS
-// ==========================================
-function openRecruitment() {
-  const form = document.getElementById('inlineRecruitmentForm');
-  if (!form) return;
-  form.classList.add('open');
-  form.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function closeRecruitment() {
-  const form = document.getElementById('inlineRecruitmentForm');
-  if (!form) return;
-  form.classList.remove('open');
-}
-
-function toggleRecruitmentForm() {
-  const form = document.getElementById('inlineRecruitmentForm');
-  if (!form) return;
-
-  const isOpen = form.classList.contains('open');
-  if (isOpen) {
-    closeRecruitment();
-  } else {
-    openRecruitment();
-  }
-}
-
-
-// ==========================================
-// ENVIAR SOLICITUD (contacto / reclutamiento) - API LOCAL
-// ==========================================
-async function enviarSolicitud(event, tipo) {
-  event.preventDefault();
-  const form = event.target;
-  const data = {
-    tipo: tipo,
-    nombre: form.querySelector('[name="nombre"]')?.value || form.querySelector('[name="personaje"]')?.value || '',
-    correo: form.querySelector('[name="email"]')?.value || '',
-    mensaje: form.querySelector('[name="mensaje"]')?.value || '',
-    personaje: form.querySelector('[name="personaje"]')?.value || '',
-    clase: form.querySelector('[name="clase"]')?.value || '',
-    espec: form.querySelector('[name="espec"]')?.value || '',
-    ilvl: form.querySelector('[name="ilvl"]')?.value || '',
-    discord: form.querySelector('[name="discord"]')?.value || '',
-    armory: form.querySelector('[name="armory"]')?.value || '',
-    fecha: new Date().toISOString(),
-    leido: false
-  };
-
-  if (tipo === 'reclutamiento') {
-    ODTDiscordSubmission.show(data, { profileUrl: CONFIG?.recruitment?.discordContactUrl });
-    return;
-  }
-
-  const submitBtn = form.querySelector('button[type="submit"]');
-  const originalBtnText = submitBtn ? submitBtn.textContent : '';
-  if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'ENVIANDO...'; }
-
-  try {
-    await ODTDocuments.sendRequest(data);
-    alert('✅ Solicitud enviada correctamente. Un oficial se pondrá en contacto.');
-    form.reset();
-    if (tipo === 'reclutamiento') {
-      closeRecruitment();
-    }
-  } catch (error) {
-    console.error(error);
-    alert('❌ ' + (error.message || 'No se pudo enviar la solicitud.'));
-  } finally {
-    if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalBtnText; }
-  }
-}
-
-// ==========================================
-// CARGA INICIAL
 // ==========================================
 async function bootOrdenDelToro() {
   try {

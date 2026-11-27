@@ -45,11 +45,9 @@
 
       await loadScript('js/documents.js?v=20261126-local');
       await loadScript('js/guide-patches.js?v=20261126-local-documents');
-      await loadScript('js/discord-submission.js?v=20261127-discord');
-      await loadScript('js/app.js?v=20261127-discord');
+      await loadScript('js/app.js?v=20261127-contact-only');
       await loadScript('js/navigation.js');
       await loadScript('js/gear.js');
-      await loadScript('js/community.js?v=20261126-local-documents');
     } catch (error) {
       console.error('[ODT] No se pudo cargar el proyecto modular:', error);
       root.innerHTML = '<div style="padding:40px;color:#e6c989;font-family:Inter,sans-serif">No se pudo cargar la interfaz. Revisa que el sitio esté servido por HTTP/HTTPS y no abierto directamente como archivo local.</div>';

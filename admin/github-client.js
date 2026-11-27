@@ -6,7 +6,7 @@
   'use strict';
   const OWNER = 'orden-del-toro', PRIVATE = 'admin-privado', PUBLIC = 'orden-del-toro.github.io';
   const OWNER_ID = 356025641;
-  const statePaths = { config: 'state/data.json', guides: 'state/guides.json', community: 'state/community.json', requests: 'state/solicitudes.json' };
+  const statePaths = { config: 'state/data.json', guides: 'state/guides.json', patches: 'state/patches.json', requests: 'state/solicitudes.json' };
   const clone = value => JSON.parse(JSON.stringify(value));
   const validId = id => /^[a-zA-Z0-9_-]{1,100}$/.test(id) && !['__proto__', 'constructor', 'prototype'].includes(id);
   const validAsset = file => /^uploads\/[a-zA-Z0-9_.-]+$/.test(file) && !file.includes('..');
@@ -22,11 +22,6 @@
     if (Array.isArray(value)) return value.map(normalize);
     if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).map(([key, child]) => [key, normalize(child)]));
     return value;
-  }
-  function publicCommunity(data) {
-    return { guidePatches: data.guidePatches || {}, communityGuides: Object.fromEntries(Object.entries(data.communityGuides || {})
-      .filter(([, guide]) => guide.status === 'published')
-      .map(([id, { voterIds, authorId, reviewedBy, ...guide }]) => [id, guide])) };
   }
   function createApi(token, fetcher = fetch) {
     return async (method, endpoint, body, { raw = false } = {}) => {
@@ -128,17 +123,16 @@
       try {
         // Se publica una versión coherente de los cuatro archivos privados.
         const version = await getSnapshot(PRIVATE);
-        const [config, guides, community] = await Promise.all(['config', 'guides', 'community'].map(async key => JSON.parse(await raw(statePaths[key], version))));
+        const [config, guides, patches] = await Promise.all(['config', 'guides', 'patches'].map(async key => JSON.parse(await raw(statePaths[key], version))));
         const publicConfig = normalize(config); delete publicConfig.compSlots;
-        const cleanCommunity = normalize(publicCommunity(community));
         const website = await getSnapshot(PUBLIC), entries = [];
-        const files = { 'data.json': publicConfig, 'guides.json': normalize(guides), 'community-data.json': cleanCommunity,
+        const files = { 'data.json': publicConfig, 'guides.json': normalize(guides), 'guide-patches.json': normalize(patches),
           'publication.json': { stateCommit: version.head } };
         for (const [file, data] of Object.entries(files)) {
           const blob = await api('POST', prefix(PUBLIC) + '/git/blobs', { content: JSON.stringify(data, null, 2), encoding: 'utf-8' });
           if (website.files.get(file)?.sha !== blob.sha) entries.push({ path: file, mode: '100644', type: 'blob', sha: blob.sha });
         }
-        const images = imagePaths([publicConfig, files['guides.json'], cleanCommunity]);
+        const images = imagePaths([publicConfig, files['guides.json']]);
         for (const file of images) {
           const privateImage = version.files.get(file), publicImage = website.files.get(file);
           if (!privateImage) {
@@ -195,9 +189,9 @@
         else throw new Error('Acción no válida.');
         return write('requests', items);
       }
-      const match = path.match(/^\/api\/documents\/(guidePatches|communityGuides)(?:\/([a-zA-Z0-9_-]+))?$/);
+      const match = path.match(/^\/api\/documents\/(guidePatches)(?:\/([a-zA-Z0-9_-]+))?$/);
       if (match) {
-        const [, collection, id] = match, data = await read('community');
+        const [, collection, id] = match, data = await read('patches');
         if (method === 'GET' && !id) return data[collection] || {};
         if (!id || !validId(id)) throw new Error('Documento no válido.');
         data[collection] ||= {};
@@ -206,11 +200,11 @@
           if (method === 'PATCH' && !data[collection][id]) throw new Error('El documento ya no existe.');
           data[collection][id] = method === 'PATCH' || body.merge ? { ...data[collection][id], ...body.data } : body.data;
         } else throw new Error('Acción no válida.');
-        return write('community', data);
+        return write('patches', data);
       }
       throw new Error('Esta importación necesita el servidor de tu PC. La edición y publicación funcionan desde el celular.');
     }
     return { connect, request: args => serial(() => route(args)), asset: file => serial(() => asset(file)) };
   }
-  return { createApi, createSession, base64, decode, normalize, publicCommunity, OWNER, PRIVATE, PUBLIC, OWNER_ID, statePaths };
+  return { createApi, createSession, base64, decode, normalize, OWNER, PRIVATE, PUBLIC, OWNER_ID, statePaths };
 });
