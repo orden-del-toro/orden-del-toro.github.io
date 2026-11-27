@@ -1,12 +1,13 @@
 {
   "guidePatches": {
     "patch-12_0_7": {
-      "name": "12.0.7",
+      "name": "12.0",
       "active": true,
       "order": 1,
       "createdAt": "2026-11-27T06:29:31.978Z",
-      "updatedAt": "2026-11-27T06:29:31.978Z",
-      "createdBy": "local-admin"
+      "updatedAt": "2026-11-27T07:29:55.958Z",
+      "createdBy": "local-admin",
+      "updatedBy": "local-admin"
     }
   }
 }

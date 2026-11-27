@@ -203,6 +203,7 @@ function navigate(page, updateUrl = true) {
 
   // Renderizar contenido dinámico si es necesario
   if (page === 'roster') renderFullRoster();
+  else memberShowcase?.setActive(false);
   if (page === 'raid') renderFullRaid();
   if (page === 'media') renderFullGallery();
   // M+ tiene contenido estático, no necesita renderizado
@@ -212,6 +213,7 @@ function navigate(page, updateUrl = true) {
 // CARGA DE DATOS DESDE EL SERVIDOR
 // ==========================================
 let CONFIG = null;
+let rosterLoadState = 'loading';
 
 // Lista de clases (para filtros y modales)
 const CLASSES = [
@@ -293,6 +295,8 @@ const DEFAULT_CONFIG = {
 };
 
 async function loadConfig() {
+  rosterLoadState = 'loading';
+  memberShowcase?.update([], {status:rosterLoadState});
   const origin = window.location.protocol === 'file:' ? 'http://localhost:3000' : window.location.origin;
   if (window.location.protocol === 'file:') {
     console.warn('Página abierta desde file://, intentando cargar datos desde el servidor local en http://localhost:3000');
@@ -343,6 +347,8 @@ async function loadConfig() {
     }
   }
 
+  rosterLoadState = loaded ? 'ready' : 'error';
+
   // Asegurar propiedades mínimas
   if (!CONFIG.media) CONFIG.media = [];
   if (!CONFIG.guides) CONFIG.guides = {};
@@ -364,15 +370,6 @@ async function loadConfig() {
   }
 
   console.log('CONFIG cargada:', CONFIG.progress && CONFIG.progress.raids ? CONFIG.progress.raids : 'sin raids');
-  // Poblar select de clases en filtros
-  const classSelect = document.getElementById('classFilter');
-  if (classSelect) {
-    classSelect.innerHTML = '<option value="">Todas</option>';
-    CLASSES.forEach(c => {
-      classSelect.innerHTML += `<option value="${c.name}">${c.name}</option>`;
-    });
-  }
-
   renderAll();
   startRosterCarousel();
 }
@@ -385,7 +382,7 @@ function renderAll() {
   renderSchedule();        // Horarios (portada)
   renderRecruitment();     // Reclutamiento (portada)
   renderActivities();      // Actividades (portada)
-  renderFullRoster();      // Página ROSTER (con filtros)
+  renderFullRoster();      // Presentación de miembros
   renderGallery();         // Galería portada
   renderFullGallery();     // Página MEDIA
   renderHomeHighlights();
@@ -694,10 +691,8 @@ function stopRosterCarousel() {
   }
 }
 
-// ---- ROSTER COMPLETO (página Roster) ----
-let rosterRoleFilter = '';
-let rosterSelectedMember = '';
-let rosterMemberTab = 'summary';
+// ---- PRESENTACION DE MIEMBROS ----
+let memberShowcase = null;
 
 function getAllRosterMembers() {
   const d = CONFIG.roster || {};
@@ -727,303 +722,15 @@ function getAllRosterMembers() {
   return allMembers;
 }
 
-function renderRosterOverview(allMembers) {
-  const stats = document.getElementById('rosterStatsCard');
-  const composition = document.getElementById('rosterCompositionCard');
-  if (!stats || !composition) return;
-
-  const total = allMembers.length;
-  const tanks = allMembers.filter(m => m.role === 'Tanque').length;
-  const healers = allMembers.filter(m => m.role === 'Sanador').length;
-  const dps = allMembers.filter(m => m.role === 'DPS').length;
-  const pct = n => total ? Math.round((n / total) * 100) : 0;
-
-  stats.innerHTML = `
-    <div class="roster-stats-grid">
-      <div class="roster-stat">
-        <div class="roster-stat-icon">👥</div>
-        <div><div class="roster-stat-value">${total}</div><div class="roster-stat-label">Jugadores</div><div class="roster-stat-note">Roster actual</div></div>
-      </div>
-      <div class="roster-stat">
-        <div class="roster-stat-icon">🛡</div>
-        <div><div class="roster-stat-value">${tanks}</div><div class="roster-stat-label">Tanques</div><div class="roster-stat-note">${pct(tanks)}% del roster</div></div>
-      </div>
-      <div class="roster-stat">
-        <div class="roster-stat-icon">✚</div>
-        <div><div class="roster-stat-value">${healers}</div><div class="roster-stat-label">Sanadores</div><div class="roster-stat-note">${pct(healers)}% del roster</div></div>
-      </div>
-      <div class="roster-stat">
-        <div class="roster-stat-icon">⚔</div>
-        <div><div class="roster-stat-value">${dps}</div><div class="roster-stat-label">DPS</div><div class="roster-stat-note">${pct(dps)}% del roster</div></div>
-      </div>
-    </div>`;
-
-  composition.innerHTML = `
-    <div class="roster-composition-title">Composición de la hermandad</div>
-    <div class="roster-composition-bar" aria-label="Composición del roster">
-      <span class="roster-comp-tank" style="width:${pct(tanks)}%"></span>
-      <span class="roster-comp-heal" style="width:${pct(healers)}%"></span>
-      <span class="roster-comp-dps" style="width:${pct(dps)}%"></span>
-    </div>
-    <div class="roster-composition-legend">
-      <div class="roster-comp-item">Tanques<strong>${pct(tanks)}%</strong></div>
-      <div class="roster-comp-item">Sanadores<strong>${pct(healers)}%</strong></div>
-      <div class="roster-comp-item">DPS<strong>${pct(dps)}%</strong></div>
-    </div>`;
-}
-
-function initRosterFilters(allMembers) {
-  const classSelect = document.getElementById('classFilter');
-  if (!classSelect) return;
-
-  const current = classSelect.value;
-  const classes = [...new Set(allMembers.map(m => m.class?.name || '').filter(Boolean))]
-    .sort((a, b) => a.localeCompare(b, 'es'));
-
-  classSelect.innerHTML = '<option value="">Todas</option>' +
-    classes.map(name => `<option value="${name}">${name}</option>`).join('');
-
-  if (classes.includes(current)) classSelect.value = current;
-}
-
-function setRosterRoleFilter(role) {
-  rosterRoleFilter = role || '';
-  document.querySelectorAll('.roster-role-pill').forEach(btn => {
-    btn.classList.toggle('active', (btn.dataset.role || '') === rosterRoleFilter);
-  });
-  renderFullRoster();
-}
-
 function renderFullRoster() {
-  bindRosterFilters();
-  const container = document.getElementById('rosterFullContainer');
-  if (!container) return;
-
-  const allMembers = getAllRosterMembers();
-  renderRosterOverview(allMembers);
-  initRosterFilters(allMembers);
-
-  const search = document.getElementById('searchInput')?.value?.trim().toLowerCase() || '';
-  const classFilter = document.getElementById('classFilter')?.value || '';
-
-  const filtered = allMembers.filter(member => {
-    const searchable = [member.name, member.class?.name, member.spec, member.role].filter(Boolean).join(' ').toLowerCase();
-    const nameMatch = !search || searchable.includes(search);
-    const roleMatch = !rosterRoleFilter || member.role === rosterRoleFilter;
-    const classMatch = !classFilter || member.class?.name === classFilter || member.class?.abbr === classFilter;
-    return nameMatch && roleMatch && classMatch;
-  });
-
-  if (!filtered.length) {
-    container.innerHTML = `<div class="roster-table-shell"><div class="roster-empty">No hay jugadores que coincidan con los filtros.</div></div>`;
-    return;
-  }
-
-  let html = `<div class="roster-table-shell"><table class="roster-full-table">
-    <thead><tr><th>Jugador</th><th>Clase</th><th>Rol</th><th>Especialización</th><th>iLvl</th><th>Asistencia</th><th>Estado</th><th></th></tr></thead><tbody>`;
-
-  filtered.forEach(member => {
-    const { color } = getClassInfo(member.class?.name);
-    const className = member.class?.name || 'Sin clase';
-    const spec = member.spec || 'N/D';
-    const role = member.role || 'Sin asignar';
-    const roleIcon = role === 'Tanque' ? '🛡' : role === 'Sanador' ? '✚' : role === 'DPS' ? '⚔' : '•';
-    const ilvl = member.ilvl || '—';
-    const attendanceCount = Math.max(0, Number(member.raidAttendance?.count) || 0);
-    const status = String(member.status || '').toLowerCase();
-    const statusClass = status.includes('inactiv') ? 'inactive' : (status.includes('ausent') || status.includes('away')) ? 'away' : '';
-    const statusLabel = status.includes('inactiv') ? 'Inactivo' : (status.includes('ausent') || status.includes('away')) ? 'Ausente' : 'Activo';
-    const playerName = String(member.name || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'");
-
-    html += `<tr onclick="openPlayerDetail('${playerName}')">
-      <td>
-        <div class="roster-player-cell">
-          <span class="roster-player-badge" style="background:${color};"></span>
-          <div><div class="roster-player-name">${member.name || 'Sin nombre'}</div><div class="roster-player-note">${attendanceCount ? `Asistencias de raid: ${attendanceCount}` : 'Miembro del roster'}</div></div>
-        </div>
-      </td>
-      <td><div class="roster-class-cell"><span class="roster-class-dot" style="background:${color};"></span><span class="roster-class-name" style="color:${color};">${className}</span></div></td>
-      <td><span class="roster-role"><span class="roster-role-icon">${roleIcon}</span>${role}</span></td>
-      <td><span class="roster-spec">${spec}</span></td>
-      <td><span class="roster-ilvl">${ilvl}</span></td>
-      <td><span class="roster-attendance-count" title="${attendanceCount ? `Asistió a ${attendanceCount} tomas de asistencia` : 'Todavía no hay datos importados'}">${attendanceCount || '—'}</span></td>
-      <td><span class="roster-status"><span class="roster-status-dot ${statusClass}"></span>${statusLabel}</span></td>
-      <td class="roster-row-arrow">›</td>
-    </tr>`;
-  });
-
-  html += `</tbody></table><div class="roster-results-meta">Mostrando ${filtered.length} de ${allMembers.length} jugadores</div></div>`;
-  container.innerHTML = html;
+  const root = document.getElementById('memberShowcase');
+  if (!root) return;
+  memberShowcase ||= ODTMemberShowcase.create(root, {onRetry: () => loadConfig()});
+  memberShowcase.update(getAllRosterMembers(), {status: rosterLoadState});
+  memberShowcase.setActive(document.getElementById('page-roster').classList.contains('active'));
 }
 
-function applyRosterFilters() {
-  renderFullRoster();
-}
-
-function resetRosterFilters() {
-  const search = document.getElementById('searchInput');
-  const role = document.getElementById('roleFilter');
-  const cls = document.getElementById('classFilter');
-  if (search) search.value = '';
-  if (role) role.value = '';
-  if (cls) cls.value = '';
-  rosterRoleFilter = '';
-  document.querySelectorAll('.roster-role-pill').forEach(btn => btn.classList.toggle('active', !btn.dataset.role));
-  renderFullRoster();
-}
-
-function bindRosterFilters() {
-  const search = document.getElementById('searchInput');
-  const classFilter = document.getElementById('classFilter');
-  if (search && !search.dataset.bound) {
-    search.dataset.bound = '1';
-    search.addEventListener('input', renderFullRoster);
-  }
-  if (classFilter && !classFilter.dataset.bound) {
-    classFilter.dataset.bound = '1';
-    classFilter.addEventListener('change', renderFullRoster);
-  }
-  document.querySelectorAll('.roster-role-pill').forEach(btn => {
-    if (!btn.dataset.bound) {
-      btn.dataset.bound = '1';
-      btn.addEventListener('click', () => setRosterRoleFilter(btn.dataset.role || ''));
-    }
-  });
-}
-
-function rosterEscapeHtml(value) {
-  return String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[ch]);
-}
-
-function rosterFormatDate(value) {
-  if (!value) return 'Fecha sin registrar';
-  const date = new Date(value);
-  return Number.isNaN(date.getTime()) ? rosterEscapeHtml(value) : date.toLocaleDateString('es-AR', { day: 'numeric', month: 'short' });
-}
-
-function renderRosterOverview(allMembers) {
-  const host = document.getElementById('rosterOverview');
-  if (!host) return;
-  const sessionKeys = new Set();
-  let fallbackAttendanceCount = 0;
-  let sanctionEvents = 0;
-  for (const member of allMembers) {
-    const sessions = Array.isArray(member.raidAttendance?.sessions) ? member.raidAttendance.sessions : [];
-    fallbackAttendanceCount = Math.max(fallbackAttendanceCount, Math.max(0, Number(member.raidAttendance?.count) || 0));
-    sessions.forEach((session, index) => sessionKeys.add(String(session.id || `${session.date || ''}|${session.raid || ''}|${index}`)));
-    sanctionEvents += Array.isArray(member.raidSanctions?.events) ? member.raidSanctions.events.length : 0;
-  }
-  const attendances = sessionKeys.size || fallbackAttendanceCount;
-  const sanctions = sanctionEvents;
-  const loot = allMembers.reduce((sum, member) => sum + (Array.isArray(member.raidLoot) ? member.raidLoot.length : 0), 0);
-  const stats = [
-    ['♟', allMembers.length, 'Jugadores'], ['▦', attendances, 'Asistencias'],
-    ['⚒', sanctions, 'Sanciones'], ['▣', loot, 'Objetos']
-  ];
-  host.innerHTML = stats.map(([icon, value, label]) => `<article class="member-stat-card"><span class="member-stat-icon" aria-hidden="true">${icon}</span><div><strong>${value}</strong><span>${label}</span></div></article>`).join('');
-}
-
-function renderRosterMemberProfile(member) {
-  const host = document.getElementById('rosterMemberDetail');
-  if (!host) return;
-  if (!member) {
-    host.innerHTML = '<div class="member-profile-empty">No hay jugadores para mostrar.</div>';
-    return;
-  }
-  const name = rosterEscapeHtml(member.name || 'Sin nombre');
-  const className = rosterEscapeHtml(member.class?.name || 'Sin clase');
-  const spec = rosterEscapeHtml(member.raidAttendance?.spec || member.spec || 'Sin especialización');
-  const { color } = getClassInfo(member.class?.name);
-  const attendance = Math.max(0, Number(member.raidAttendance?.count) || 0);
-  const sanctions = member.raidSanctions || { total: 0, events: [] };
-  const sanctionTotal = Math.max(0, Number(sanctions.total) || 0);
-  const loot = Array.isArray(member.raidLoot) ? member.raidLoot : [];
-  const sessions = Array.isArray(member.raidAttendance?.sessions) ? [...member.raidAttendance.sessions].reverse() : [];
-  const events = Array.isArray(sanctions.events) ? [...sanctions.events].reverse() : [];
-  const activeTab = ['summary', 'attendance', 'sanctions', 'loot'].includes(rosterMemberTab) ? rosterMemberTab : 'summary';
-  const tabContent = activeTab === 'attendance' ? `<section class="member-detail-card"><h3>ASISTENCIAS DE RAID</h3>${sessions.length ? `<div class="member-detail-rows">${sessions.map(session => `<div class="member-detail-row"><span>${rosterFormatDate(session.date)}</span><span>${rosterEscapeHtml(session.raid || 'Asistencia de raid')}</span></div>`).join('')}</div>` : '<p class="member-empty-note">Todavía no hay sesiones importadas.</p>'}</section>`
-    : activeTab === 'sanctions' ? `<section class="member-detail-card"><h3>SANCIONES</h3>${events.length ? `<div class="member-detail-rows">${events.map(event => `<div class="member-detail-row"><span>${rosterEscapeHtml(event.reason || 'Sanción')}${event.date ? ` · ${rosterFormatDate(event.date)}` : ''}</span><strong class="member-negative">-${Math.max(0, Number(event.amount) || 0)} ${Number(event.amount) === 1 ? 'dado' : 'dados'}</strong></div>`).join('')}</div>` : '<p class="member-empty-note">No hay sanciones registradas.</p>'}</section>`
-    : activeTab === 'loot' ? `<section class="member-detail-card"><h3>BOTÍN</h3>${loot.length ? `<div class="member-detail-rows">${[...loot].reverse().map(item => `<div class="member-detail-row"><span>${rosterEscapeHtml(item.item || 'Objeto sin nombre')}${item.roll ? ` · Roll ${Math.round(Number(item.roll))}` : ''}</span><span>${rosterFormatDate(item.date)}</span></div>`).join('')}</div>` : '<p class="member-empty-note">No hay botín registrado.</p>'}</section>`
-    : `<div class="member-summary-grid"><section class="member-detail-card"><h3>▦ &nbsp; ÚLTIMAS ASISTENCIAS</h3>${sessions.length ? `<div class="member-detail-rows">${sessions.slice(0, 5).map(session => `<div class="member-detail-row"><span>${rosterFormatDate(session.date)}</span><span>${rosterEscapeHtml(session.raid || 'Asistencia de raid')}</span></div>`).join('')}</div>` : '<p class="member-empty-note">Todavía no hay sesiones importadas.</p>'}</section><div class="member-summary-stack"><section class="member-detail-card"><h3>⚒ &nbsp; SANCIONES</h3>${events.length ? `<div class="member-detail-rows">${events.slice(0, 3).map(event => `<div class="member-detail-row"><span>${rosterEscapeHtml(event.reason || 'Sanción')}</span><strong class="member-negative">-${Math.max(0, Number(event.amount) || 0)} dado${Number(event.amount) === 1 ? '' : 's'}</strong></div>`).join('')}</div>` : '<p class="member-empty-note">Sin sanciones registradas.</p>'}</section><section class="member-detail-card"><h3>▣ &nbsp; ÚLTIMO BOTÍN</h3>${loot.length ? `<div class="member-detail-rows"><div class="member-detail-row"><span>${rosterEscapeHtml(loot[loot.length - 1].item || 'Objeto sin nombre')}</span><span>${rosterFormatDate(loot[loot.length - 1].date)}</span></div></div>` : '<p class="member-empty-note">Sin botín registrado.</p>'}</section></div></div>`;
-  const syncedAt = CONFIG.raidSync?.exportedAt;
-  host.innerHTML = `<header class="member-profile-header"><span class="member-profile-avatar" style="background:${rosterEscapeHtml(color)}"></span><div class="member-profile-identity"><h2>${name}</h2><p><b>${className}</b><span>•</span>${spec}</p></div><div class="member-profile-metrics"><div><span>ASISTENCIAS</span><strong>${attendance}</strong></div><div><span>SANCIONES</span><strong class="member-negative">-${sanctionTotal} dados</strong></div><div><span>BOTÍN</span><strong>${loot.length} objetos</strong></div></div></header><nav class="member-profile-tabs" aria-label="Datos del jugador">${[['summary','Resumen'],['attendance','Asistencia'],['sanctions','Sanciones'],['loot','Botín']].map(([id,label]) => `<button type="button" data-member-tab="${id}" class="${activeTab === id ? 'active' : ''}">${label}</button>`).join('')}</nav><div class="member-profile-content">${tabContent}</div><footer class="member-sync-status"><i></i>${syncedAt ? `Datos sincronizados con el addon · ${rosterFormatDate(syncedAt)}` : 'Datos del addon aún no sincronizados'}</footer>`;
-  const identity = host.querySelector('.member-profile-identity');
-  const summaryCard = host.querySelector('.member-summary-grid > .member-detail-card');
-  if (summaryCard) {
-    const metadata = document.createElement('div');
-    metadata.className = 'member-character-meta';
-    const label = document.createElement('span');
-    label.className = 'member-character-label';
-    label.textContent = 'PERSONAJE';
-    const values = document.createElement('div');
-    values.className = 'member-character-values';
-    const itemLevel = Number(member.ilvl);
-    const level = document.createElement('strong');
-    level.className = 'member-character-ilvl';
-    level.textContent = `iLvl ${Number.isFinite(itemLevel) && itemLevel > 0 ? Math.round(itemLevel) : '—'}`;
-    values.appendChild(level);
-    const rawArmoryUrl = String(member.armoryUrl || '').trim();
-    if (rawArmoryUrl && rawArmoryUrl !== '#') {
-      try {
-        const armoryUrl = new URL(rawArmoryUrl, window.location.href);
-        if (armoryUrl.protocol === 'https:' || armoryUrl.protocol === 'http:') {
-          const link = document.createElement('a');
-          link.href = armoryUrl.href;
-          link.target = '_blank';
-          link.rel = 'noopener noreferrer';
-          link.className = 'member-character-armory';
-          link.setAttribute('aria-label', `Ver armería de ${member.name || 'este jugador'}`);
-          link.textContent = 'Ver armería ↗';
-          values.appendChild(link);
-        }
-      } catch (_) {}
-    }
-    metadata.append(label, values);
-    summaryCard.insertBefore(metadata, summaryCard.firstChild);
-  }
-  const profileHeader = host.querySelector('.member-profile-header');
-  const profileAvatar = host.querySelector('.member-profile-avatar');
-  const profileMetrics = host.querySelector('.member-profile-metrics');
-  if (profileHeader && profileAvatar && identity && profileMetrics) {
-    const person = document.createElement('div');
-    person.className = 'member-profile-person';
-    profileHeader.insertBefore(person, profileAvatar);
-    person.append(profileAvatar, identity);
-  }
-  host.querySelectorAll('[data-member-tab]').forEach(button => button.addEventListener('click', () => { rosterMemberTab = button.dataset.memberTab; renderRosterMemberProfile(member); }));
-}
-
-function renderFullRoster() {
-  bindRosterFilters();
-  const allMembers = getAllRosterMembers();
-  renderRosterOverview(allMembers);
-  const query = document.getElementById('searchInput')?.value?.trim().toLocaleLowerCase('es') || '';
-  const filtered = allMembers.filter(member => [member.name, member.class?.name, member.spec].filter(Boolean).join(' ').toLocaleLowerCase('es').includes(query));
-  const list = document.getElementById('rosterPlayerList');
-  const count = document.getElementById('rosterPlayerCount');
-  if (count) count.textContent = `${filtered.length} / ${allMembers.length}`;
-  if (list) {
-    list.innerHTML = filtered.length ? filtered.map(member => {
-      const key = String(member.name || '');
-      const { color } = getClassInfo(member.class?.name);
-      const active = key.toLocaleLowerCase('es') === rosterSelectedMember.toLocaleLowerCase('es');
-      const attendance = Math.max(0, Number(member.raidAttendance?.count) || 0);
-      return `<button type="button" class="member-player-row ${active ? 'active' : ''}" data-member-name="${rosterEscapeHtml(key)}"><span class="member-player-avatar" style="background:${rosterEscapeHtml(color)}"></span><span class="member-player-copy"><strong>${rosterEscapeHtml(key || 'Sin nombre')}</strong><small>${rosterEscapeHtml(member.class?.name || 'Sin clase')}</small></span><span class="member-player-attendance">${attendance} asist.</span><span class="member-player-arrow">›</span></button>`;
-    }).join('') : '<p class="member-empty-note">No hay jugadores que coincidan con la búsqueda.</p>';
-    list.querySelectorAll('[data-member-name]').forEach(button => button.addEventListener('click', () => {
-      rosterSelectedMember = button.dataset.memberName || '';
-      rosterMemberTab = 'summary';
-      renderFullRoster();
-    }));
-  }
-  const selected = allMembers.find(member => String(member.name || '').toLocaleLowerCase('es') === rosterSelectedMember.toLocaleLowerCase('es')) || filtered[0] || allMembers[0] || null;
-  if (selected && selected.name !== rosterSelectedMember) rosterSelectedMember = selected.name || '';
-  renderRosterMemberProfile(selected);
-}
-
-// ==========================================
-// MODAL DE DETALLES DEL JUGADOR
-// ==========================================
+// Modal compartido con el nucleo de Inicio.
 function openPlayerDetail(playerName) {
   const d = CONFIG.roster || {};
   const normalizedTarget = String(playerName || '').trim().toLowerCase();

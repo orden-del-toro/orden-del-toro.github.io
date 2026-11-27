@@ -45,7 +45,8 @@
 
       await loadScript('js/documents.js?v=20261126-local');
       await loadScript('js/guide-patches.js?v=20261126-local-documents');
-      await loadScript('js/app.js?v=20261127-contact-only');
+      await loadScript('js/member-showcase.js?v=20261127-members');
+      await loadScript('js/app.js?v=20261127-members');
       await loadScript('js/navigation.js');
       await loadScript('js/gear.js');
     } catch (error) {

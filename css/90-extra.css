@@ -1134,26 +1134,6 @@
   }
 }
 
-/* --- Roster completo (tabla) --- */
-@media (max-width: 820px) {
-  .roster-full-table {
-    font-size: 12px;
-  }
-  .roster-full-table th,
-  .roster-full-table td {
-    padding: 6px 4px;
-  }
-  .roster-full-table .class-dot {
-    width: 20px;
-    height: 20px;
-    font-size: 8px;
-  }
-  .roster-full-table th:last-child,
-  .roster-full-table td:last-child {
-    display: none;
-  }
-}
-
 /* --- Guías (overlay) --- */
 @media (max-width: 820px) {
   .guides-topbar {

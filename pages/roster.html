@@ -1,19 +1,24 @@
 <div class="page" id="page-roster">
-  <div class="wrap roster-page-shell">
-    <section class="member-dashboard-stats" id="rosterOverview" aria-label="Resumen de miembros"></section>
-    <div class="member-dashboard">
-      <aside class="member-directory" aria-label="Jugadores">
-        <div class="member-directory-heading">
-          <h1>JUGADORES</h1>
-          <span id="rosterPlayerCount"></span>
-        </div>
-        <label class="member-search" for="searchInput">
-          <span aria-hidden="true">⌕</span>
-          <input autocomplete="off" id="searchInput" placeholder="Buscar jugador..." type="search" />
-        </label>
-        <div class="member-player-list" id="rosterPlayerList"></div>
-      </aside>
-      <section class="member-profile" id="rosterMemberDetail" aria-live="polite"></section>
+  <section class="wrap odt-members" aria-labelledby="membersTitle">
+    <div class="odt-members-intro">
+      <p class="odt-members-eyebrow">NUESTRA HERMANDAD</p>
+      <h1 id="membersTitle">QUIENES HACEN LA ORDEN</h1>
+      <p class="odt-members-motto">Cada nombre, parte de nuestra historia.</p>
     </div>
-  </div>
+    <div id="memberShowcase" class="odt-member-showcase" role="region" aria-roledescription="carrusel" aria-label="Integrantes de la hermandad" aria-live="off" tabindex="-1">
+      <div class="odt-members-state" data-member-state role="status">
+        <p data-member-message>Cargando integrantes…</p>
+        <button type="button" data-member-retry hidden>Volver a intentar</button>
+      </div>
+      <div class="odt-members-stage" data-member-stage hidden></div>
+      <div class="odt-members-controls" data-member-controls hidden>
+        <button type="button" data-member-previous aria-label="Integrante anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button>
+        <span class="odt-members-progress" aria-hidden="true"><span data-member-progress></span></span>
+        <span class="odt-members-counter" data-member-counter aria-label="Posición de la presentación"></span>
+        <button type="button" data-member-next aria-label="Integrante siguiente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button>
+        <button type="button" class="odt-members-play" data-member-play aria-label="Pausar presentación"><span data-member-play-icon aria-hidden="true">Ⅱ</span><span data-member-play-label>Pausar</span></button>
+      </div>
+      <p class="odt-member-sr" data-member-announcement aria-live="polite" aria-atomic="true"></p>
+    </div>
+  </section>
 </div>
